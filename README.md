@@ -67,3 +67,5 @@ For example, if someone craves the best burger in town, they do not necessarily 
 ### October 27 
 
   - FLEX
+
+npm install xpress mongoose passport passport-jwt jsonwebtoken body-parser bcryptjs validator
