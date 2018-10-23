@@ -17,6 +17,11 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const { searchInfo } = this.state;
+
+    // if (searchInfo.length >= 2) {
+    //   debugger;
+    // }
     return (
       <div className={`search-container`}>
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import jwt_decode from 'jwt-decode';
 import * as APIUtil from './util/session_api_util';
+import { yelpTest } from './util/yelp_api_util';
 //Components
 import configureStore from './store/store';
 import App from './App.jsx';
@@ -11,6 +12,7 @@ import registerServiceWorker from './serviceWorker';
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   window.getState = store.getState;
+  window.yelpTest = yelpTest;
   // Check for token
   if (localStorage.jwtToken) {
     // Set auth token header auth
