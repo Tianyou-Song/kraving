@@ -6,7 +6,7 @@ import * as APIUtil from './util/session_api_util';
 //Components
 import configureStore from './store/store';
 import App from './App.jsx';
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './serviceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();

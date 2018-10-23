@@ -1,6 +1,4 @@
-import {
-  SET_CURRENT_USER,
-} from '../util/session_api_util';
+import {SET_CURRENT_USER } from '../../util/session_api_util';
 
 const _nullUser = Object.freeze({
   id: null
