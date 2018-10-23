@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 // import SearchDropdown from './searchbar_dropdown';
 
 class SearchBar extends React.Component {
@@ -6,8 +7,12 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       searchInfo: '',
-      location: ''
+      lastSearchInfo: '',
+      location: '',
+      yelpResponse: []
     };
+
+    this.yelpSearch = this.yelpSearch.bind(this);
   }
 
   update(field) {
@@ -16,12 +21,36 @@ class SearchBar extends React.Component {
     });
   }
 
-  render() {
-    const { searchInfo } = this.state;
-
-    if (searchInfo.length >= 2) {
-      
+  componentDidUpdate() {
+    const { searchInfo, yelpResponse, lastSearchInfo } = this.state;
+    if (searchInfo.length >= 1 && lastSearchInfo != searchInfo) {
+      this.setState({lastSearchInfo: searchInfo});
+      this.yelpSearch({term: searchInfo, location: 'San Francisco, CA', limit: 5})
+    } else if (searchInfo.length === 0 && yelpResponse.length >= 1) {
+      this.setState({yelpResponse: []})
     }
+  }
+
+  yelpSearch(searchInfo) {
+    const { yelpResponse } = this.state;
+    axios
+      .get('/api/yelp/search', {
+      params: {
+        searchInfo
+      }})
+      .then(res => {
+        const businesses = res.data
+        this.setState({yelpResponse: businesses})
+        debugger;
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  render() {
+    const { yelpResponse } = this.state;
+
     return (
       <div className={`search-container`}>
 
@@ -31,6 +60,12 @@ class SearchBar extends React.Component {
             className="left-input"
             onChange={this.update('searchInfo')}
           />
+        </div>
+
+        <div>
+          {yelpResponse.map(bus => (
+            <li key={bus.id}>{bus.name}</li>
+          ))}
         </div>
 
         {/* <SearchDropdown formType={formType} side={'left'} searchInfo={searchInfo}

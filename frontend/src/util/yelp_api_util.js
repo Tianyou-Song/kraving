@@ -4,7 +4,6 @@ export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
 
 
 export const setSearchResults = payload => {
-  debugger;
   return {
     type: SET_SEARCH_RESULTS,
     payload
@@ -20,7 +19,6 @@ export const yelpTest = (searchInfo) => dispatch => {
     }})
     .then(res => {
       const businesses = res.data
-      debugger;
       dispatch(setSearchResults(businesses))
     })
     .catch(err => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBarContainer from '../searchbar/searchbar_container';
+import SearchBar from '../searchbar/searchbar';
 import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
@@ -11,7 +11,7 @@ class Header extends React.Component {
         <div className="header-logo">
           <img src="https://i.imgur.com/2yLouYp.png" className="header-logo-image"/>
         </div>
-        <SearchBarContainer />
+        <SearchBar />
       </div>
     )
   }

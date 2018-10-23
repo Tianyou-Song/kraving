@@ -5,7 +5,6 @@ import { yelpSearch } from '../../util/yelp_api_util';
 const mapStateToProps = ( { entities } ) => {
 
   const { search } = entities;
-
   return {
     search
   };
