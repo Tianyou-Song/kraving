@@ -12,6 +12,7 @@ import registerServiceWorker from './serviceWorker';
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   window.getState = store.getState;
+  window.dispatch = store.dispatch;
   window.yelpTest = yelpTest;
   window.registerUser = APIUtil.registerUser;
   // Check for token
