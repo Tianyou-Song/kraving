@@ -11,7 +11,6 @@ const client = yelp.client(apiKey);
 // };
 
 const yelpSearch = (searchRequest) => {
-  // debugger;
   return (
     client.search(searchRequest).then(response => {
       const { businesses } = response.jsonBody;
@@ -23,7 +22,6 @@ const yelpSearch = (searchRequest) => {
 };
 
 router.get('/search', (req, res) => {
-  debugger;
   const { searchInfo } = req.query;
   const parsed = JSON.parse(searchInfo);
   // debugger;
