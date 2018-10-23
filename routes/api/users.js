@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
           newUser.password = hash;
           newUser.save()
           .then(userInfo => {
-            const payload = { id: userInfo.id, name: userInfo.name };
+            const payload = { id: userInfo.id, name: userInfo.name, email: userInfo.email };
             jsonwebtoken.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => {
               res.json({
                 success: true,
