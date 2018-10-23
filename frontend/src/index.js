@@ -10,6 +10,7 @@ import registerServiceWorker from './serviceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
+  window.getState = store.getState;
   // Check for token
   if (localStorage.jwtToken) {
     // Set auth token header auth
