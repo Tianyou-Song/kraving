@@ -23,12 +23,23 @@
 
 import axios from 'axios';
 
+// const yelpTest = () => {
+//   axios.get('/test').then(res => {
+//     return res;
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
+// }
+
 export const yelpTest = () => {
-  debugger;
-  axios.get('test').then(res => {
-    console.log(res);
-  })
-  .catch(err => {
-    console.log(err);
-  })
+  axios
+    .get('/api/yelp/search')
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+
 }

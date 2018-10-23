@@ -17,13 +17,15 @@ const yelpSearch = () => client.search(searchRequest).then(response => {
 }).catch(e => {
   console.log(e);
 });
-// router.get('/search', (req, res) => res.send('working route!'));
+
 router.get('/search', (req, res) => {
   yelpSearch().then(yelpResponse => {
     res.send(yelpResponse);
   });
 });
 
+// easy sample route for testing
+// router.get('/search', (req, res) => res.send('working route!'));
 
 
 module.exports = router;
