@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { fetchDogs } from '../../util/api/dog_util';
+// import { fetchDogs } from '../../util/api/dog_util';
 
 class SearchDropdown extends React.Component {
-
 
 
   render() {
