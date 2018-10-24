@@ -8,6 +8,7 @@ class SearchBarItem extends React.Component {
 
     return (
       <div className="search-dropdown-item">
+        <img src="/images/stars/0.png"></img>
         <li>{bus.name}</li>
       </div>
     )
