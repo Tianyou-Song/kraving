@@ -4,6 +4,7 @@ import { logoutUser } from '../../util/session_api_util'
 
 class SplashIndex extends React.Component {
   handleLogout() {
+    debugger;
     logoutUser();
   }
 
