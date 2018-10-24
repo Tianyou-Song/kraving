@@ -1,0 +1,34 @@
+/* div{
+  background: green;
+} */
+
+
+.index-title{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  color: #262626;
+}
+
+
+.business-list-container{
+  /* display: flex; */
+}
+.business-card-container{
+  border: 1px red solid;
+  width: 50%;
+  margin: 10px;
+
+}
+
+.business-card-image{
+  width: 100%;
+  height: 33%
+}
+
+img{
+  border: 1px black solid;
+  width:100%
+}
