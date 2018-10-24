@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
+const yelp = require('./routes/api/yelp');
 const passport = require('passport');
 require('./config/passport')(passport);
 
@@ -16,6 +17,7 @@ mongoose
 app.use(passport.initialize());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 
 app.get('/test', (req, res) => {
@@ -23,7 +25,8 @@ app.get('/test', (req, res) => {
 });
 
 app.use("/api/users", users);
+app.use("/api/yelp", yelp);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(6000, () => console.log(`Server is running on port 6000`));
