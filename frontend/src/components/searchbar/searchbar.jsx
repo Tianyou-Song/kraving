@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import SearchBarItem from './searchbar_item';
 // import SearchDropdown from './searchbar_dropdown';
 
 class SearchBar extends React.Component {
@@ -23,6 +24,7 @@ class SearchBar extends React.Component {
 
   componentDidUpdate() {
     const { searchInfo, yelpResponse, lastSearchInfo } = this.state;
+
     if (searchInfo.length >= 1 && lastSearchInfo != searchInfo) {
       this.setState({lastSearchInfo: searchInfo});
       this.yelpSearch({term: searchInfo, location: 'San Francisco, CA', limit: 5})
@@ -41,7 +43,6 @@ class SearchBar extends React.Component {
       .then(res => {
         const businesses = res.data
         this.setState({yelpResponse: businesses})
-        debugger;
       })
       .catch(err => {
         console.log(err);
@@ -49,41 +50,26 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { yelpResponse } = this.state;
+    const { yelpResponse, displayDropdown } = this.state;
 
     return (
       <div className={`search-container`}>
 
-        <div className={`search-input left-bar` } id="left-search-bar">
-          <input type="text"
-            placeholder="Search for food"
-            className="left-input"
-            onChange={this.update('searchInfo')}
-          />
+        <div className="search-input">
+          <div>
+            <input type="text"
+              placeholder="Search for food"
+              className="left-input"
+              onChange={this.update('searchInfo')}
+            />
+          </div>
         </div>
 
-        <div>
+
+        <div className="search-dropdown">
           {yelpResponse.map(bus => (
-            <li key={bus.id}>{bus.name}</li>
+            <SearchBarItem bus={bus} key={bus.id}/>
           ))}
-        </div>
-
-        {/* <SearchDropdown formType={formType} side={'left'} searchInfo={searchInfo}
-          filteredDogs={filteredDogs} filteredTypes={filteredTypes}/> */}
-
-
-
-        {/* <div className={`search-input right-bar`} id="right-search-bar">
-          <span>Near</span>
-          <input type="text"
-            placeholder="San Francisco, CA"
-            className="right-input"
-            onChange={this.update('location')}
-          />
-        </div> */}
-
-        <div className={`search-button`}>
-          <i className="fas fa-search"></i>
         </div>
       </div>
     );
