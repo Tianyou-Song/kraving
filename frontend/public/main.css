@@ -68,5 +68,54 @@ html, body{
   position: absolute;
   border: 1px solid black;
   width: 100%;
+  background: white;
   padding: 20px;
 }
+
+/* searchbar */
+/* searchbar-item */
+
+
+.search-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.search-dropdown-item:hover {
+  background: #ECECEC;
+}
+
+.search-dropdown-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.search-dropdown-text {
+  margin-left: 10px;
+}
+
+.search-dropdown-title {
+  margin-bottom: 5px;
+}
+
+.search-dropdown-stars {
+  display: flex;
+}
+
+.search-stars {
+  height: 20px;
+}
+
+.search-review-count {
+  margin-left: 5px;
+  color: grey;
+}
+
+/* searchbar-item */
+
+.
