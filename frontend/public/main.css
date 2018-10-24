@@ -61,15 +61,15 @@ html, body{
   padding: 20px;
   width: 100%;
   border-radius: 3px;
+  border-bottom: none;
 }
 
 .search-dropdown {
   z-index: 1;
   position: absolute;
   border: 1px solid black;
-  width: 100%;
+  width: 108%;
   background: white;
-  padding: 20px;
 }
 
 /* searchbar */
@@ -81,7 +81,6 @@ html, body{
   align-items: center;
   padding: 10px;
   cursor: pointer;
-  width: 100%;
 }
 
 .search-dropdown-item:hover {
