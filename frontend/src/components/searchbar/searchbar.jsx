@@ -13,7 +13,9 @@ class SearchBar extends React.Component {
       lastLocation: '',
       location: '',
       yelpResponse: [],
-      googleResponse: []
+      googleResponse: [],
+      showFoodDropdown: true,
+      showLocDropdown: true
     };
 
     this.yelpSearch = this.yelpSearch.bind(this);
@@ -22,9 +24,10 @@ class SearchBar extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => (
+      this.setState({[field]: e.currentTarget.value}),
+      this.setState({showLocDropdown: true})
+    )
   }
 
   componentDidUpdate() {
@@ -82,12 +85,21 @@ class SearchBar extends React.Component {
 
   handleClick(loc) {
     this.setState({location: loc})
-    const dropdown = document.getElementById('search-dropdown-loc')
-    dropdown.classList.add('display-none')
+    this.setState({showLocDropdown: false})
+    // const dropdown = document.getElementById('search-dropdown-loc')
+    // dropdown.classList.add('display-none')
+  }
+
+  showClosingButton() {
+    const { location, searchInfo } = this.state;
+    if (location.length >= 1) {
+      return <i class="fas fa-times" onClick={() => this.setState({location: ''})}></i>
+    }
   }
 
   render() {
-    const { yelpResponse, googleResponse, handleClick, location, searchInfo } = this.state;
+    const { yelpResponse, googleResponse, handleClick, location,
+      searchInfo, showLocDropdown, showFoodDropdown } = this.state;
 
     return (
     <div className="search-container">
@@ -107,7 +119,8 @@ class SearchBar extends React.Component {
 
         <div className="searchbar-dropdown" id="search-dropdown-food">
           {yelpResponse.map(bus => (
-            <SearchBarItem bus={bus} key={bus.id} formType='yelp'/>
+            <SearchBarItem bus={bus} key={bus.id} formType='yelp'
+            show={showFoodDropdown}/>
           ))}
         </div>
       </div>
@@ -124,12 +137,14 @@ class SearchBar extends React.Component {
               value={location}
             />
           </div>
+          {this.showClosingButton()}
         </div>
 
 
         <div className="searchbar-dropdown" id="search-dropdown-loc">
           {googleResponse.map(loc => (
-            <SearchBarItem loc={loc} key={loc.id} formType='google' handleClick={this.handleClick}/>
+            <SearchBarItem loc={loc} key={loc.id} formType='google'
+              handleClick={this.handleClick} show={showLocDropdown}/>
           ))}
         </div>
         </div>

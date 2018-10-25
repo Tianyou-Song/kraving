@@ -4,9 +4,9 @@ import SearchItemCSS from './searchbar_item.css'
 class SearchBarItem extends React.Component {
 
   render() {
-    const { bus, formType, loc, handleClick } = this.props;
+    const { bus, formType, loc, handleClick, show } = this.props;
 
-    if (formType === 'yelp') {
+    if (formType === 'yelp' && show) {
       return (
         <div className="search-dropdown-item">
           <div>
@@ -21,7 +21,7 @@ class SearchBarItem extends React.Component {
           </div>
         </div>
       )
-    } else if (formType === 'google') {
+    } else if (formType === 'google' && show) {
       return (
         <div className="search-dropdown-item" onClick={() => handleClick(loc.description)}>
           <div className="search-dropdown-text">
@@ -29,6 +29,8 @@ class SearchBarItem extends React.Component {
           </div>
         </div>
       )
+    } else {
+      return null
     }
 
   }

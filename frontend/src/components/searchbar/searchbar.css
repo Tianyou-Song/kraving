@@ -23,7 +23,7 @@
 
 .fas {
   font-size: 24px;
-  margin: 20px;
+  margin-right: 20px;
 }
 
 .search-input {
@@ -55,8 +55,8 @@
   background: white;
 }
 
-.display-none {
-  display: none;
+.fa-times {
+  cursor: pointer;
 }
 
 /* searchbar */
