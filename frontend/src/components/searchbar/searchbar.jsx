@@ -90,10 +90,12 @@ class SearchBar extends React.Component {
     // dropdown.classList.add('display-none')
   }
 
-  showClosingButton() {
+  showClosingButton(type) {
     const { location, searchInfo } = this.state;
-    if (location.length >= 1) {
+    if (type === 'loc' && location.length >= 1) {
       return <i class="fas fa-times" onClick={() => this.setState({location: ''})}></i>
+    } else if (type === 'search' && searchInfo.length >= 1) {
+      return <i class="fas fa-times" onClick={() => this.setState({searchInfo: ''})}></i>
     }
   }
 
@@ -103,7 +105,9 @@ class SearchBar extends React.Component {
 
     return (
     <div className="search-container">
+
       <div className={`search-bar-container`}>
+
         <i className="fas fa-search"></i>
         <div className="search-input">
           <div className="search-input-inner">
@@ -114,6 +118,7 @@ class SearchBar extends React.Component {
               value={searchInfo}
             />
           </div>
+          {this.showClosingButton('search')}
         </div>
 
 
@@ -137,7 +142,7 @@ class SearchBar extends React.Component {
               value={location}
             />
           </div>
-          {this.showClosingButton()}
+          {this.showClosingButton('loc')}
         </div>
 
 
