@@ -85,7 +85,7 @@ class IndexPage extends React.Component {
               <div className="business-card-container-column" key={business.id}>
                 <div className="business-card-image"><img src={business.image}/></div>
                 <div className="business-card-name">{business.name}</div>
-                <div className="business-card-detail">{business.price}   {business.cuisines}   {business.rating}</div>
+                <div className="business-card-detail">💰{business.price} · {business.cuisines} · ⭐{business.rating}</div>
               </div>
         )
       })
