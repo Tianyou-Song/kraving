@@ -27,6 +27,7 @@
   padding: 20px 0px;
   width: 100%;
   color: white;
+  font-size: 18px;
 }
 
 .search-input-box::placeholder {

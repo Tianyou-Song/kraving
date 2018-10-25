@@ -1,9 +1,8 @@
 .header-container {
-  height: 80px;
+  height: 70px;
   background: #FF7D7D;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
 }
 
 .header-logo {

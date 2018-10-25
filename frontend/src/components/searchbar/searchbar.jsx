@@ -56,11 +56,11 @@ class SearchBar extends React.Component {
     return (
     <div className="search-container">
       <div className={`search-bar-container`}>
-        <i class="fas fa-map-marker-alt"></i>
+        <i class="fas fa-search"></i>
         <div className="search-input">
           <div>
             <input type="text"
-              placeholder="Search for food"
+              placeholder="Pizza, sushi, donuts"
               className="search-input-box"
               onChange={this.update('searchInfo')}
             />
@@ -76,11 +76,12 @@ class SearchBar extends React.Component {
       </div>
 
       <div className={`search-bar-container`}>
-        <i class="fas fa-search"></i>
+
+        <i class="fas fa-map-marker-alt"></i>
         <div className="search-input">
           <div>
             <input type="text"
-              placeholder="Search for food"
+              placeholder="San Franciso, CA"
               className="search-input-box"
               onChange={this.update('searchInfo')}
             />
