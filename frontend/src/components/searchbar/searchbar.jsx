@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
       yelpResponse: [],
       googleResponse: [],
       showFoodDropdown: true,
-      showLocDropdown: true
+      showlocationDropdown: true
     };
 
     this.yelpSearch = this.yelpSearch.bind(this);
@@ -24,19 +24,25 @@ class SearchBar extends React.Component {
   }
 
   update(field) {
-    return e => (
-      this.setState({[field]: e.currentTarget.value}),
-      this.setState({showLocDropdown: true})
-    )
+    return (e) => {
+      this.setState({[field]: e.currentTarget.value})
+      if (field === 'location') {
+        this.setState({showlocationDropdown: true})
+      }
+    }
   }
 
   componentDidUpdate() {
     const { searchInfo, yelpResponse, lastSearchInfo,
-      location, lastLocation, googleResponse } = this.state;
+      lastLocation, googleResponse, location } = this.state;
 
-    if (searchInfo.length >= 1 && lastSearchInfo != searchInfo) {
+    if (searchInfo.length >= 1 && lastSearchInfo !== searchInfo) {
       this.setState({lastSearchInfo: searchInfo});
-      this.yelpSearch({term: searchInfo, location: 'San Franciso', limit: 5})
+      if (location === '' ) {
+        this.yelpSearch({term: searchInfo, location: 'San Francisco, CA', limit: 5})
+      } else {
+        this.yelpSearch({term: searchInfo, location: location, limit: 5})
+      }
     } else if (searchInfo.length === 0 && yelpResponse.length >= 1) {
       this.setState({yelpResponse: []})
     }
@@ -85,7 +91,7 @@ class SearchBar extends React.Component {
 
   handleClick(loc) {
     this.setState({location: loc})
-    this.setState({showLocDropdown: false})
+    this.setState({showlocationDropdown: false})
     // const dropdown = document.getElementById('search-dropdown-loc')
     // dropdown.classList.add('display-none')
   }
@@ -101,7 +107,7 @@ class SearchBar extends React.Component {
 
   render() {
     const { yelpResponse, googleResponse, handleClick, location,
-      searchInfo, showLocDropdown, showFoodDropdown } = this.state;
+      searchInfo, showlocationDropdown, showFoodDropdown } = this.state;
 
     return (
     <div className="search-container">
@@ -149,7 +155,7 @@ class SearchBar extends React.Component {
         <div className="searchbar-dropdown" id="search-dropdown-loc">
           {googleResponse.map(loc => (
             <SearchBarItem loc={loc} key={loc.id} formType='google'
-              handleClick={this.handleClick} show={showLocDropdown}/>
+              handleClick={this.handleClick} show={showlocationDropdown}/>
           ))}
         </div>
         </div>
