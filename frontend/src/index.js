@@ -8,6 +8,7 @@ import { yelpTest } from './util/yelp_api_util';
 import configureStore from './store/store';
 import App from './App.jsx';
 import registerServiceWorker from './serviceWorker';
+import {yelpBiz} from './util/yelp_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.yelpTest = yelpTest;
   window.registerUser = APIUtil.registerUser;
+  window.yelpBiz = yelpBiz;
   // Check for token
   if (localStorage.jwtToken) {
     // Set auth token header auth

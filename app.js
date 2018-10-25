@@ -27,6 +27,6 @@ app.get('/test', (req, res) => {
 app.use("/api/users", users);
 app.use("/api/yelp", yelp);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 
 app.listen(6000, () => console.log(`Server is running on port 6000`));
