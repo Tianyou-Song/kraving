@@ -18,3 +18,9 @@
 .header-logo-image {
   object-fit: contain;
 }
+
+.logout {
+  color: green;
+  border: 1px black solid;
+  cursor: pointer;
+}
