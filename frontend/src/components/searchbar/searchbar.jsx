@@ -56,19 +56,19 @@ class SearchBar extends React.Component {
     return (
     <div className="search-container">
       <div className={`search-bar-container`}>
-
+        <i class="fas fa-map-marker-alt"></i>
         <div className="search-input">
           <div>
             <input type="text"
               placeholder="Search for food"
-              className="left-input"
+              className="search-input-box"
               onChange={this.update('searchInfo')}
             />
           </div>
         </div>
 
 
-        <div className="search-dropdown">
+        <div className="searchbar-dropdown">
           {yelpResponse.map(bus => (
             <SearchBarItem bus={bus} key={bus.id}/>
           ))}
@@ -76,19 +76,19 @@ class SearchBar extends React.Component {
       </div>
 
       <div className={`search-bar-container`}>
-
+        <i class="fas fa-search"></i>
         <div className="search-input">
           <div>
             <input type="text"
               placeholder="Search for food"
-              className="left-input"
+              className="search-input-box"
               onChange={this.update('searchInfo')}
             />
           </div>
         </div>
 
 
-        <div className="search-dropdown">
+        <div className="searchbar-dropdown">
           {yelpResponse.map(bus => (
             <SearchBarItem bus={bus} key={bus.id}/>
           ))}

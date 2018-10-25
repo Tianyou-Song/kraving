@@ -4,21 +4,33 @@
 .search-container {
   display: flex;
   width: 100%;
+  font-family: arial;
 }
 
 .search-bar-container {
-  width: 30%;
+  width: 40%;
   position: relative;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.fas {
+  font-size: 24px;
+  margin: 20px;
 }
 
 .search-input {
-  border: 1px solid black;
   display: flex;
   align-items: center;
   padding: 20px 0px;
   width: 100%;
-  border-radius: 3px;
-  border-bottom: none;
+  color: white;
+}
+
+.search-input-box::placeholder {
+  color: white;
 }
 
 .search-dropdown {

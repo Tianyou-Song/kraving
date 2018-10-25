@@ -1,9 +1,12 @@
+.searchbar-dropdown {
+  display: none;
+}
+
 .search-dropdown-item {
   display: flex;
   align-items: center;
   padding: 10px;
   cursor: pointer;
-  
 }
 
 .search-dropdown-item:hover {
