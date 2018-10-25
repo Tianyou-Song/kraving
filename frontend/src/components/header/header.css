@@ -1,3 +1,24 @@
+.header-container {
+  height: 70px;
+  background: #FF7D7D;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  font-weight: bold;
+  color: white;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+
+.header-logo-image {
+  object-fit: contain;
+}
+
 .logout {
   color: green;
   border: 1px black solid;

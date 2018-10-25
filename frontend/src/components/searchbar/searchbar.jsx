@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import SearchBarItem from './searchbar_item';
+import SearchCSS from './searchbar.css'
 // import SearchDropdown from './searchbar_dropdown';
 
 class SearchBar extends React.Component {
@@ -9,11 +10,14 @@ class SearchBar extends React.Component {
     this.state = {
       searchInfo: '',
       lastSearchInfo: '',
+      lastLocation: '',
       location: '',
-      yelpResponse: []
+      yelpResponse: [],
+      googleResponse: []
     };
 
     this.yelpSearch = this.yelpSearch.bind(this);
+    this.googleSearch = this.googleSearch.bind(this);
   }
 
   update(field) {
@@ -23,13 +27,20 @@ class SearchBar extends React.Component {
   }
 
   componentDidUpdate() {
-    const { searchInfo, yelpResponse, lastSearchInfo } = this.state;
+    const { searchInfo, yelpResponse, lastSearchInfo, location, lastLocation, googleResponse } = this.state;
 
     if (searchInfo.length >= 1 && lastSearchInfo != searchInfo) {
       this.setState({lastSearchInfo: searchInfo});
-      this.yelpSearch({term: searchInfo, location: 'San Francisco, CA', limit: 5})
+      this.yelpSearch({term: searchInfo, location: 'San Franciso', limit: 5})
     } else if (searchInfo.length === 0 && yelpResponse.length >= 1) {
       this.setState({yelpResponse: []})
+    }
+
+    if (location.length >=1 && lastLocation != location) {
+      this.setState({lastLocation: location});
+      this.googleSearch(location)
+    } else if (location.length === 0 && googleResponse.length >= 1) {
+      this.setState({googleResponse: []})
     }
   }
 
@@ -49,27 +60,67 @@ class SearchBar extends React.Component {
       })
   }
 
+  googleSearch(location) {
+    debugger;
+    const { googleResponse } = this.state;
+    axios
+    .get('api/google/search', {
+      params: {
+        location
+      }})
+      .then(res => {
+        const predictions = res.data
+        this.setState({googleResponse: predictions})
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   render() {
-    const { yelpResponse, displayDropdown } = this.state;
+    const { yelpResponse, googleResponse } = this.state;
 
     return (
-      <div className={`search-container`}>
-
+    <div className="search-container">
+      <div className={`search-bar-container`}>
+        <i className="fas fa-search"></i>
         <div className="search-input">
           <div>
             <input type="text"
-              placeholder="Search for food"
-              className="left-input"
+              placeholder="Pizza, sushi, donuts"
+              className="search-input-box"
               onChange={this.update('searchInfo')}
             />
           </div>
         </div>
 
 
-        <div className="search-dropdown">
+        <div className="searchbar-dropdown" id="search-dropdown-food">
           {yelpResponse.map(bus => (
-            <SearchBarItem bus={bus} key={bus.id}/>
+            <SearchBarItem bus={bus} key={bus.id} formType='yelp'/>
           ))}
+        </div>
+      </div>
+
+      <div className={`search-bar-container`}>
+
+        <i className="fas fa-map-marker-alt"></i>
+        <div className="search-input">
+          <div>
+            <input type="text"
+              placeholder="San Franciso, CA"
+              className="search-input-box"
+              onChange={this.update('location')}
+            />
+          </div>
+        </div>
+
+
+        <div className="searchbar-dropdown" id="search-dropdown-loc">
+          {googleResponse.map(loc => (
+            <SearchBarItem loc={loc} key={loc.id} formType='google'/>
+          ))}
+        </div>
         </div>
       </div>
     );

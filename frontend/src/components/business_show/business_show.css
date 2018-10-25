@@ -6,6 +6,68 @@
   box-sizing: border-box;
 }
 
+
+.business-show-detail-container{
+  background: white;
+  padding: 30px;
+  height: 60%;
+  width: 25%;
+  margin-left: 10%;
+  margin-top: 120px;
+  position: absolute;
+  border-radius: 3px;
+  /* margin-top: 10%;  */
+
+}
+
+@media screen and (max-width: 992px) {
+  .business-show-detail-container{
+    /* background: red; */
+    width: 75%;
+    margin-top: 10%
+    /* height: 330px */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .business-show-detail-container{
+    margin-top: 20%;
+    width: 75%;
+
+  }
+}
+.business-show-name{
+  margin-top: 5px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  color: #262626;
+}
+.business-show-detail{
+  margin-top: 10%;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #757575;
+}
+
+.business-show-header{
+  /* background: yellow; */
+  height: 370px;
+  position: relative;
+  background-size: cover;
+  background-image: url(https://www.straight.com/files/v3/styles/gs_large/public/images/18/01/mcds_c._uber_eats.jpg?itok=lEd7_yS1);
+  background-position: center center;
+  /* margin: 0 auto; */
+  /* text-align: center; */
+  /* justify-content: center; */
+  /* display: flex; */
+  /* align-items: baseline; */
+}
 .index-title{
   font-family: sans-serif;
   font-style: normal;
@@ -17,7 +79,7 @@
 }
 
 
-.business-card-container-column{
+.food-card-container-column{
   /* background: red; */
   /* border: 1px red solid; */
   /* width: 100%; */
@@ -25,16 +87,15 @@
   margin: 15px;
   /* display: ; */
   float: left;
-  width: 30%;
+  width: 20%;
   /* height: 30%; */
   padding: 5px;
-  cursor: pointer;
 }
 
-.business-list-container-row{
+.food-list-container-row{
   /* margin: auto; */
 }
-.business-list-container-row:after{
+.food-list-container-row:after{
   /* background: green; */
   /* display: flex; */
   /* display: grid; */
@@ -52,36 +113,37 @@
 }
 
 @media screen and (max-width:992px){
-  .business-card-container-column{
+  .food-card-container-column{
     /* background: green; */
-    width: 45%
+    width: 45%;
+    /* height: 400px */
 
   }
 }
 @media screen and (max-width: 600px) {
-  .business-card-container-column{
+  .food-card-container-column{
     /* background: red; */
     width: 95%;
     /* height: 330px */
   }
 }
 /* @media screen and (min-width: 1000px) {
-  .business-card-container-column{
+  .food-card-container-column{
         background: yellow;
         width: 35%;
     }
 } */
 
-.business-card-image{
+.food-card-image{
   /* width: 100%; */
   /* height: 75%%; */
   /* border: 1px green solid; */
 }
 
-
-img {
-  width:100%;
-  /* max-height:200px; */
+.food-card-image img{
+  /* width:100%; */
+  /* max-height:230px; */
+  height: 100%;
   border-radius: 6px;
   display: inline-block;
   vertical-align: middle;
@@ -92,6 +154,7 @@ img {
   transition-duration: 0.3s;
   -webkit-transition-property: transform;
   transition-property: transform;
+
 }
 img:hover, img:focus, img:active {
   cursor: pointer;
@@ -100,7 +163,7 @@ img:hover, img:focus, img:active {
   /* weight: 90%; */
 }
 
-.business-card-name{
+.food-card-name{
   margin-top: 5px;
   font-family: sans-serif;
   font-style: normal;
@@ -110,7 +173,7 @@ img:hover, img:focus, img:active {
   color: #262626;
 }
 
-.business-card-detail{
+.food-card-detail{
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;

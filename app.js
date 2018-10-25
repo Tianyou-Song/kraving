@@ -5,6 +5,7 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
 const yelp = require('./routes/api/yelp');
+const google = require('./routes/api/google');
 const passport = require('passport');
 require('./config/passport')(passport);
 
@@ -26,7 +27,8 @@ app.get('/test', (req, res) => {
 
 app.use("/api/users", users);
 app.use("/api/yelp", yelp);
+app.use("/api/google", google);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 
 app.listen(6000, () => console.log(`Server is running on port 6000`));

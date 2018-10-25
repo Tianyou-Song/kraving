@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './index.css'
+import Header from '../header/header';
 const mapStateToProps = state => {
   // city: return name of city we're looking for
   //businesses: return an array we will map over of ALL businesses in our database
@@ -85,7 +86,7 @@ class IndexPage extends React.Component {
               <div className="business-card-container-column" key={business.id}>
                 <div className="business-card-image"><img src={business.image}/></div>
                 <div className="business-card-name">{business.name}</div>
-                <div className="business-card-detail">{business.price}   {business.cuisines}   {business.rating}</div>
+                <div className="business-card-detail">💰{business.price} · {business.cuisines} · ⭐{business.rating}</div>
               </div>
         )
       })
@@ -102,7 +103,7 @@ class IndexPage extends React.Component {
     const seedCity = "San Francisco"
     return(
       <div className="index-page-container">
-        {this.searchBar()}
+        <Header />
         <h1 className="index-title">Food Delivery in {seedCity}</h1>
         {this.businessGrid()}
         <link href="css/hover.css" rel="stylesheet" media="all"/>
