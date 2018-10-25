@@ -1,4 +1,5 @@
 .logout {
   color: green;
+  border: 1px black;
   cursor: pointer;
 }

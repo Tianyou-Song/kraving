@@ -5,7 +5,6 @@ import './splash_index.css'
 
 class SplashIndex extends React.Component {
   handleLogout() {
-    // debugger;
     this.props.logoutUser();
   }
 
