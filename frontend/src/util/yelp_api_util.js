@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
+export const GET_BIZ = 'GET_BIZ'
 
 
 export const setSearchResults = payload => {
@@ -9,6 +10,13 @@ export const setSearchResults = payload => {
     payload
   };
 };
+
+export const getBiz = business => {
+  return {
+    type: GET_BIZ,
+    business
+  }
+}
 
 
 export const yelpTest = (searchInfo) => dispatch => {
@@ -23,6 +31,21 @@ export const yelpTest = (searchInfo) => dispatch => {
     })
     .catch(err => {
       console.log(err);
-    })
+    });
+}
 
+
+export const yelpBiz = (id) => dispatch => {
+  axios
+    .get('/api/yelp/biz', {
+    params: {
+      id
+    }})
+    .then(res => {
+      const business = res.data
+      dispatch(getBiz(business))
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
