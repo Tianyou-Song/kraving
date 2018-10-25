@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import SearchBarItem from './searchbar_item';
+import SearchCSS from './searchbar.css'
 // import SearchDropdown from './searchbar_dropdown';
 
 class SearchBar extends React.Component {
@@ -50,10 +51,11 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { yelpResponse, displayDropdown } = this.state;
+    const { yelpResponse } = this.state;
 
     return (
-      <div className={`search-container`}>
+    <div className="search-container">
+      <div className={`search-bar-container`}>
 
         <div className="search-input">
           <div>
@@ -70,6 +72,27 @@ class SearchBar extends React.Component {
           {yelpResponse.map(bus => (
             <SearchBarItem bus={bus} key={bus.id}/>
           ))}
+        </div>
+      </div>
+
+      <div className={`search-bar-container`}>
+
+        <div className="search-input">
+          <div>
+            <input type="text"
+              placeholder="Search for food"
+              className="left-input"
+              onChange={this.update('searchInfo')}
+            />
+          </div>
+        </div>
+
+
+        <div className="search-dropdown">
+          {yelpResponse.map(bus => (
+            <SearchBarItem bus={bus} key={bus.id}/>
+          ))}
+        </div>
         </div>
       </div>
     );

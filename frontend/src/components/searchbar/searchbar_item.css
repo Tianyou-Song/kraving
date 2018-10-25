@@ -1,0 +1,42 @@
+.search-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  
+}
+
+.search-dropdown-item:hover {
+  background: #ECECEC;
+}
+
+.search-dropdown-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.search-dropdown-text {
+  margin-left: 10px;
+}
+
+.search-dropdown-title {
+  margin-bottom: 5px;
+}
+
+.search-dropdown-stars {
+  display: flex;
+}
+
+.search-stars {
+  height: 32%;
+  width: 32%;
+}
+
+.search-review-count {
+  margin-left: 5px;
+  color: grey;
+}
+
+/* searchbar-item */
