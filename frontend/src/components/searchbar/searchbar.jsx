@@ -18,6 +18,7 @@ class SearchBar extends React.Component {
 
     this.yelpSearch = this.yelpSearch.bind(this);
     this.googleSearch = this.googleSearch.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update(field) {
@@ -27,7 +28,8 @@ class SearchBar extends React.Component {
   }
 
   componentDidUpdate() {
-    const { searchInfo, yelpResponse, lastSearchInfo, location, lastLocation, googleResponse } = this.state;
+    const { searchInfo, yelpResponse, lastSearchInfo,
+      location, lastLocation, googleResponse } = this.state;
 
     if (searchInfo.length >= 1 && lastSearchInfo != searchInfo) {
       this.setState({lastSearchInfo: searchInfo});
@@ -39,6 +41,8 @@ class SearchBar extends React.Component {
     if (location.length >=1 && lastLocation != location) {
       this.setState({lastLocation: location});
       this.googleSearch(location)
+      // const dropdown = document.getElementById('search-dropdown-loc')
+      // dropdown.classList.remove('display-none')
     } else if (location.length === 0 && googleResponse.length >= 1) {
       this.setState({googleResponse: []})
     }
@@ -61,7 +65,6 @@ class SearchBar extends React.Component {
   }
 
   googleSearch(location) {
-    debugger;
     const { googleResponse } = this.state;
     axios
     .get('api/google/search', {
@@ -77,19 +80,26 @@ class SearchBar extends React.Component {
       })
   }
 
+  handleClick(loc) {
+    this.setState({location: loc})
+    const dropdown = document.getElementById('search-dropdown-loc')
+    dropdown.classList.add('display-none')
+  }
+
   render() {
-    const { yelpResponse, googleResponse } = this.state;
+    const { yelpResponse, googleResponse, handleClick, location, searchInfo } = this.state;
 
     return (
     <div className="search-container">
       <div className={`search-bar-container`}>
         <i className="fas fa-search"></i>
         <div className="search-input">
-          <div>
+          <div className="search-input-inner">
             <input type="text"
               placeholder="Pizza, sushi, donuts"
               className="search-input-box"
               onChange={this.update('searchInfo')}
+              value={searchInfo}
             />
           </div>
         </div>
@@ -106,11 +116,12 @@ class SearchBar extends React.Component {
 
         <i className="fas fa-map-marker-alt"></i>
         <div className="search-input">
-          <div>
+          <div className="search-input-inner">
             <input type="text"
               placeholder="San Franciso, CA"
               className="search-input-box"
               onChange={this.update('location')}
+              value={location}
             />
           </div>
         </div>
@@ -118,7 +129,7 @@ class SearchBar extends React.Component {
 
         <div className="searchbar-dropdown" id="search-dropdown-loc">
           {googleResponse.map(loc => (
-            <SearchBarItem loc={loc} key={loc.id} formType='google'/>
+            <SearchBarItem loc={loc} key={loc.id} formType='google' handleClick={this.handleClick}/>
           ))}
         </div>
         </div>

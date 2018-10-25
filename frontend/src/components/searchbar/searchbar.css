@@ -39,12 +39,24 @@
   color: white;
 }
 
+.search-input-inner {
+  width: 100%;
+}
+
+.search-input-box {
+  width: 100%;
+}
+
 .search-dropdown {
   z-index: 1;
   position: absolute;
   border: 1px solid black;
   width: 108%;
   background: white;
+}
+
+.display-none {
+  display: none;
 }
 
 /* searchbar */
