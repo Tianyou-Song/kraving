@@ -10,8 +10,9 @@
   color: white;
   font-family: Impact, Charcoal, sans-serif;
   font-size: 30px;
-  padding: 20px;
-  border-right: .5px solid white;
+  display: flex;
+  justify-content: center;
+  width: 15%;
 }
 
 .header-logo-image {

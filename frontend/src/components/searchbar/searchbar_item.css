@@ -2,11 +2,10 @@
   position: absolute;
   z-index: 1;
   background: white;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
   top: 87px;
-  left: 74px;
   color: black;
+  width: 100%;
+  left: -1px;
 }
 
 .search-dropdown-item {
@@ -14,6 +13,13 @@
   align-items: center;
   padding: 10px;
   cursor: pointer;
+  border-bottom: .5px solid #DFDFDF;
+  border-left: .5px solid #DFDFDF;
+  border-right: .5px solid #DFDFDF;
+}
+.search-dropdown-item:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 .search-dropdown-item:hover {
@@ -21,8 +27,8 @@
 }
 
 .search-dropdown-image {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border-radius: 3px;
   object-fit: cover;
 }
@@ -33,6 +39,7 @@
 
 .search-dropdown-title {
   margin-bottom: 5px;
+  font-size: 18px;
 }
 
 .search-dropdown-stars {
@@ -40,8 +47,8 @@
 }
 
 .search-stars {
-  height: 32%;
-  width: 32%;
+  height: 37%;
+  width: 37%;
 }
 
 .search-review-count {
