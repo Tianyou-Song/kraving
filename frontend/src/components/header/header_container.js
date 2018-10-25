@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../../util/session_api_util'
-import SplashIndex from './splash_index';
+import Header from './header';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -10,4 +10,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(SplashIndex);
+export default connect(null, mapDispatchToProps)(Header);
