@@ -5,7 +5,7 @@ import {
   ProtectedRoute
 } from '../util/routes_api_util';
 
-import SplashIndex from './splash/splash_index';
+import SplashIndexContainer from './splash/splash_index_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container.jsx';
 import SearchContainer from './google_map/search.jsx';
@@ -16,7 +16,7 @@ const Root = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <Route exact path="/" component={SplashIndex} />
+      <Route exact path="/" component={SplashIndexContainer} />
       <Route exact path="/maps" component={SearchContainer} />
       <Route exact path="/index" component={IndexContainer} />
       <Redirect to="/" />

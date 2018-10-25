@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../header/header';
 import { logoutUser } from '../../util/session_api_util'
+import './splash_index.css'
 
 class SplashIndex extends React.Component {
   handleLogout() {
-    debugger;
-    logoutUser();
+    // debugger;
+    this.props.logoutUser();
   }
 
   render() {
