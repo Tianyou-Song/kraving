@@ -1,5 +1,12 @@
 .searchbar-dropdown {
-  display: none;
+  position: absolute;
+  z-index: 1;
+  background: white;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  top: 87px;
+  left: 74px;
+  color: black;
 }
 
 .search-dropdown-item {

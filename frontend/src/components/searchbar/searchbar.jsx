@@ -68,7 +68,7 @@ class SearchBar extends React.Component {
         </div>
 
 
-        <div className="searchbar-dropdown">
+        <div className="searchbar-dropdown" id="search-dropdown-food">
           {yelpResponse.map(bus => (
             <SearchBarItem bus={bus} key={bus.id}/>
           ))}
@@ -89,11 +89,11 @@ class SearchBar extends React.Component {
         </div>
 
 
-        <div className="searchbar-dropdown">
+        {/* <div className="searchbar-dropdown" id="search-dropdown-loc">
           {yelpResponse.map(bus => (
             <SearchBarItem bus={bus} key={bus.id}/>
           ))}
-        </div>
+        </div> */}
         </div>
       </div>
     );
