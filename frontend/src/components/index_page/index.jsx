@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
     const seedData = [
     {
       id: 1,
-      image: "https://www.mcdonalds.com/content/dam/usa/documents/mcdelivery/mcdelivery_new11.jpg",
+      image: "https://www.straight.com/files/v3/styles/gs_large/public/images/18/01/mcds_c._uber_eats.jpg?itok=lEd7_yS1",
       name: "McDonald's",
       price: "$",
       cuisines: "American",
@@ -53,6 +53,22 @@ class IndexPage extends React.Component {
       price: "$$",
       cuisines: "Halal",
       rating: 4.6
+    },
+    {
+      id: 4,
+      image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
+      name: "The Halal Guys",
+      price: "$$",
+      cuisines: "Halal",
+      rating: 4.6
+    },
+    {
+      id: 5,
+      image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
+      name: "The Halal Guys",
+      price: "$$",
+      cuisines: "Halal",
+      rating: 4.6
     }
   ];
 
@@ -66,20 +82,16 @@ class IndexPage extends React.Component {
           //   )
           // })
             return(
-              <div className="business-card-container" key={business.id}>
+              <div className="business-card-container-column" key={business.id}>
                 <div className="business-card-image"><img src={business.image}/></div>
                 <div className="business-card-name">{business.name}</div>
-                <div className="business-card-price">{business.price}</div>
-                <div className="business-card-cuisine">
-                {business.cuisines}
-                </div>
-                <div className="business-card-rating">{business.rating}</div>
+                <div className="business-card-detail">{business.price}   {business.cuisines}   {business.rating}</div>
               </div>
         )
       })
 
     return(
-      <div className="business-list-container">
+      <div className="business-list-container-row">
         {mapBusinesses}
       </div>
     )
@@ -93,6 +105,7 @@ class IndexPage extends React.Component {
         {this.searchBar()}
         <h1 className="index-title">Food Delivery in {seedCity}</h1>
         {this.businessGrid()}
+        <link href="css/hover.css" rel="stylesheet" media="all"/>
       </div>
     )
   }
