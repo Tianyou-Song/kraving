@@ -36,12 +36,14 @@ export const yelpTest = (searchInfo) => dispatch => {
 
 
 export const yelpBiz = (id) => dispatch => {
+  // debugger
   axios
     .get('/api/yelp/biz', {
     params: {
       id
     }})
     .then(res => {
+      // debugger
       const business = res.data
       dispatch(getBiz(business))
     })

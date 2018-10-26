@@ -61,7 +61,7 @@ class SearchBar extends React.Component {
   }
 
   googleSearch(location) {
-    debugger;
+    // debugger;
     const { googleResponse } = this.state;
     axios
     .get('api/google/search', {

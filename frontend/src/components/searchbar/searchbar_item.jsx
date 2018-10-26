@@ -5,7 +5,7 @@ class SearchBarItem extends React.Component {
 
   render() {
     const { bus, formType, loc } = this.props;
-    debugger;
+    // debugger;
 
     if (formType === 'yelp') {
       return (

@@ -1,48 +1,64 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './business_show.css'
+import { yelpBiz } from '../../util/yelp_api_util.js'
 
 const mapStateToProps = (state, ownProps) => {
   // foodItems: array of food objects
   // businesses: return an array we will map over of ALL businesses in our database
+  // debugger
   return({
-    // business: this.state[ownProps.match.params.businessId]
+    business: state.entities.search[ownProps.match.params.businessId]
     // foodItems: this.state.business.food
+  })
+}
+
+const mapDispatchToProps = dispatch => {
+  return({
+    getBusiness: (id) => dispatch(yelpBiz(id))
   })
 }
 
 
 class BusinessShow extends React.Component {
+  constructor(props){
+    super(props)
+    // this.state = { this.props.business }
+    // console.log(this.state);
+    // debugger
+  }
+
+  componentDidMount(){
+    this.props.getBusiness("__I9HmtBMV4dDkEgT22V4g")
+
+    // debugger
+    // this.props.getBusiness(this.props.match.params.businessId)
+  }
 
 
   businessHeader(){
 
-    const seedDataBusiness =
-      {
-        id: 1,
-        image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
-        name: "McDonald's by Tim's House",
-        price: "$",
-        cuisines: "American",
-        rating: 4.4
-      }
-    ;
+    // debugger
+    // <div className="business-show-name">{this.props.business.name}</div>
+    if (this.props.business){
 
-    return(
-      <div id={seedDataBusiness.id} className="business-show-header">
-        <div className="business-show-detail-container">
-          <div className="business-show-name">{seedDataBusiness.name}</div>
-          <div className="business-show-detail">💰{seedDataBusiness.price} · {seedDataBusiness.cuisines} · ⭐{seedDataBusiness.rating}</div>
+      return(
+        <div id={this.props.business.id} className="business-show-header">
+          <div className="business-show-detail-container">
+          <div className="business-show-name"><a href={this.props.business.url}>{this.props.business.name}</a></div>
+          <div className="business-show-detail">📍{this.props.business.location.address1}, {this.props.business.location.city} </div>
+          <div className="business-show-detail">{this.props.business.price} · {this.props.business.categories[0].title} · ⭐{this.props.business.rating}</div>
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
 
   }
 
 
   foodGrid(){
 
-    const seedDataFoods = [
+    const SEED_FOOD = [
     {
       id: 1,
       image: "http://www.tficanada.com/wordpress/wp-content/uploads/2017/02/h-mcdonalds-Double-Quarter-Pounder-with-Cheese-Extra-Value-Meals-1.png",
@@ -96,15 +112,16 @@ class BusinessShow extends React.Component {
 
     // map over each business
     const mapFoods =
-      seedDataFoods.map( food => {
+      SEED_FOOD.map( food => {
+        // debugger
             return(
               <div className="food-card-container-column" key={food.id}>
                 <div className="food-card-image"><img src={food.image}/></div>
                 <div className="food-card-name">{food.name}</div>
                 <div className="food-card-detail">💰{food.price} · {food.calories} Cal · ⭐{food.rating}</div>
               </div>
-        )
-      })
+            )
+          })
 
     return(
       <div className="food-list-container-row">
@@ -127,4 +144,4 @@ class BusinessShow extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, null)(BusinessShow);
+export default connect(mapStateToProps, mapDispatchToProps)(BusinessShow);
