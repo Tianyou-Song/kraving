@@ -4,7 +4,7 @@ const yelp = require('yelp-fusion');
 const axios = require('axios');
 
 
-const apiKey = 'bv99Hp2Y-gkKwKd9ASxC9fgh-SzkjvVWhUser2vFKvErOnKFrHJLvKlFPIhFRqF_cvhsO4qmQ8MMMEMc78LgeTSf83zDXef8hBo11QAjzrjuabOmb7TmIOQuYAbNW3Yx';
+const apiKey = 'xU7tcXILJQTtezGRreczXX9fEfEr71ExuzEL20cLkvBBMefO81OAQ_xBJfrT70WFFJfhevJqP1sOb4UEe3bK5CyqXsgiksq332p1S3S4UnkrJuS8UBXGFWllYHnTW3Yx';
 const client = yelp.client(apiKey);
 
 
@@ -31,9 +31,27 @@ const yelpGet = (id) => {
   );
 };
 
+const yelpReviews = (id) => {
+  return (
+    client.reviews(id).then(response => {
+      const reviews = response.jsonBody;
+      return reviews;
+    }).catch(e => {
+      console.log(e);
+    })
+  );
+};
+
 router.get('/biz', (req, res) => {
   const id = req.query.id;
   yelpGet(id).then(yelpResponse => {
+    res.send(yelpResponse);
+  });
+});
+
+router.get('/reviews', (req, res) => {
+  const id = req.query.id;
+  yelpReviews(id).then(yelpResponse => {
     res.send(yelpResponse);
   });
 });
@@ -45,6 +63,8 @@ router.get('/search', (req, res) => {
     res.send(yelpResponse);
   });
 });
+
+
 
 
 module.exports = router;
