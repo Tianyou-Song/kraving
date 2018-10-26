@@ -74,9 +74,9 @@ class SearchBar extends React.Component {
       .catch(err => {
         console.log(err);
       })
-  }, 1000);
+  }, 500);
 
-  googleSearch(location) {
+  googleSearch = debounce((location) => {
     const { googleResponse } = this.state;
     axios
     .get('api/google/search', {
@@ -90,7 +90,7 @@ class SearchBar extends React.Component {
       .catch(err => {
         console.log(err);
       })
-  }
+  }, 500);
 
   handleClick(type, value) {
     if (type === 'location') {
