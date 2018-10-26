@@ -9,6 +9,7 @@ const client = yelp.client(apiKey);
 
 
 const yelpSearch = (searchRequest) => {
+  debugger;
   return (
     client.search(searchRequest).then(response => {
       const { businesses } = response.jsonBody;
@@ -20,12 +21,9 @@ const yelpSearch = (searchRequest) => {
 };
 
 const yelpGet = (id) => {
-  // debugger;
-  // console.log(client)
   return (
     client.business(id).then(response => {
       const business = response.jsonBody;
-      // debugger
       return business;
     }).catch(e => {
       console.log(e);
@@ -34,11 +32,8 @@ const yelpGet = (id) => {
 };
 
 router.get('/biz', (req, res) => {
-  console.log("cookie");
-  // debugger
   const id = req.query.id;
   yelpGet(id).then(yelpResponse => {
-    // debugger
     res.send(yelpResponse);
   });
 });
