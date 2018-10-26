@@ -5,7 +5,6 @@ import {
   ProtectedRoute
 } from '../util/routes_api_util';
 
-import SplashIndex from './splash/splash_index';
 import Index from './index_page/index';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container.jsx';

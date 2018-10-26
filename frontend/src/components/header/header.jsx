@@ -6,27 +6,33 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleLogout() {
-    debugger
-    console.log(this.props)
     this.props.logout();
   }
 
+  renderLogout() {
+    if (this.props.currentUser) {
+      return (
+        <div className="logout" onClick={() => this.handleLogout()}>Log out</div>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
-    return (
-      <div className="header-container">
+    return <div className="header-container">
         <div className="header-logo">
           {/* <img src="https://i.imgur.com/2yLouYp.png" className="header-logo-image"/> */}
           <span className="header-title">KRAVING</span>
         </div>
-        <div className="logout" onClick={()=>this.handleLogout()}>Log out</div>
+
         <SearchBar />
-      </div>
-    )
+        {this.renderLogout()}
+      </div>;
   }
 }
 
