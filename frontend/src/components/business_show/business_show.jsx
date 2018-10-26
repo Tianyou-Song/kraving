@@ -29,10 +29,10 @@ class BusinessShow extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getBusiness("__I9HmtBMV4dDkEgT22V4g")
+    // this.props.getBusiness("__I9HmtBMV4dDkEgT22V4g")
 
     // debugger
-    // this.props.getBusiness(this.props.match.params.businessId)
+    this.props.getBusiness(this.props.match.params.businessId)
   }
 
 
@@ -43,7 +43,11 @@ class BusinessShow extends React.Component {
     if (this.props.business){
 
       return(
-        <div id={this.props.business.id} className="business-show-header">
+        <div id={this.props.business.id} className="business-show-header"
+        style={{
+          backgroundImage: `url(${this.props.business.image_url})`
+        }}
+        >
           <div className="business-show-detail-container">
           <div className="business-show-name"><a href={this.props.business.url}>{this.props.business.name}</a></div>
           <div className="business-show-detail">📍{this.props.business.location.address1}, {this.props.business.location.city} </div>
