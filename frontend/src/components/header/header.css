@@ -39,6 +39,23 @@
 
 .logout-button {
   color: green;
-  border: 1px black solid;
+  border: 1px rgb(8, 7, 7) solid;
   cursor: pointer;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  hover: cursor;
+}
+
+.login-link {
+  display: flex;
+  text-decoration: underline;
+  justify-content: flex-start;
+}
+
+.signup-link {
+  text-decoration: underline;
+  justify-content: flex-end;
 }

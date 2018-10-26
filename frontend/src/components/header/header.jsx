@@ -20,9 +20,9 @@ class Header extends React.Component {
       );
     } else {
       return (
-        <div>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+        <div className="auth-links">
+            <Link className="login-link" to="/login">Login</Link>
+            <Link className="signup-link" to="/signup">Signup</Link>
         </div>
       );
     }
