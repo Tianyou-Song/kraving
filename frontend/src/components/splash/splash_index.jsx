@@ -6,7 +6,7 @@ class SplashIndex extends React.Component {
   render() {
       return (
       <div className="splash-index-container">
-        <Header />
+        <Header value="xyz"/>
         <h1>Hello World, Splash Index Page!</h1>
       </div>
     );

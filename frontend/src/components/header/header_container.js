@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import { logoutUser } from '../../util/session_api_util'
 import Header from './header';
 
+const mapStateToProps = () => {
+  return {};
+}
+
 const mapDispatchToProps = dispatch => {
   return {
-    logoutUser: () => dispatch(logoutUser()),
+    logout: () => dispatch(logoutUser()),
   };
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
