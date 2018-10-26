@@ -4,6 +4,8 @@ import './index.css';
 import jwt_decode from 'jwt-decode';
 import * as APIUtil from './util/session_api_util';
 import { yelpReviews } from './util/yelp_api_util';
+import { zomSearch } from './util/zomato_api_util';
+
 //Components
 import configureStore from './store/store';
 import App from './App.jsx';
@@ -16,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.registerUser = APIUtil.registerUser;
   window.yelpBiz = yelpBiz;
-  window.yelpReviews = yelpReviews
+  window.yelpReviews = yelpReviews;
+  window.zomSearch = zomSearch;
   // Check for token
   if (localStorage.jwtToken) {
     // Set auth token header auth
