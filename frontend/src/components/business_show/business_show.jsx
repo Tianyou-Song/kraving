@@ -1,22 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './business_show.css'
-import { yelpBiz } from '../../util/yelp_api_util.js'
+import { yelpBiz, yelpReviews } from '../../util/yelp_api_util.js'
 import HeaderContainer from '../header/header_container';
 
 const mapStateToProps = (state, ownProps) => {
   // foodItems: array of food objects
   // businesses: return an array we will map over of ALL businesses in our database
   // debugger
+  const business = state.entities.search[ownProps.match.params.businessId]
+
   return({
-    business: state.entities.search[ownProps.match.params.businessId]
+    business: business,
+    businessId: ownProps.match.params.businessId,
+    reviews: state.entities.reviews
     // foodItems: this.state.business.food
   })
 }
 
 const mapDispatchToProps = dispatch => {
   return({
-    getBusiness: (id) => dispatch(yelpBiz(id))
+    getBusiness: (id) => dispatch(yelpBiz(id)),
+    getReviews: (id) => dispatch(yelpReviews(id))
   })
 }
 
@@ -27,15 +32,24 @@ class BusinessShow extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.getBusiness("__I9HmtBMV4dDkEgT22V4g")
+    const { business, getBusiness, businessId, reviews, getReviews } = this.props;
+    if (!business) {
+      getBusiness(businessId)
+    }
 
-    // debugger
-    this.props.getBusiness(this.props.match.params.businessId)
+    if (business && Object.keys(reviews).length <= 0) {
+      getReviews(businessId)
+    }
   }
 
   componentDidUpdate() {
-    if (!this.props.business) {
-      this.props.getBusiness(this.props.match.params.businessId)
+    const { business, getBusiness, businessId, getReviews, reviews } = this.props;
+    if (!business) {
+      getBusiness(businessId)
+    }
+
+    if (business && Object.keys(reviews).length <= 0) {
+      getReviews(businessId)
     }
   }
 
@@ -140,7 +154,6 @@ class BusinessShow extends React.Component {
 
 
   render(){
-    debugger;
     const seedCity = "San Francisco"
     return(
       <div className="business-show-page-container">
