@@ -6,10 +6,11 @@ import {
 } from '../util/routes_api_util';
 
 import SignUpFormContainer from './session_form/signup_form_container';
-import LogInFormContainer from './session_form/login_form_container.jsx';
-import SearchContainer from './google_map/search.jsx';
-import IndexContainer from './index_page/index_container.jsx';
-import BusinessShowContainer from './business_show/business_show.jsx';
+import LogInFormContainer from './session_form/login_form_container';
+import SearchContainer from './google_map/search';
+import IndexContainer from './index_page/index_container';
+import BusinessShowContainer from './business_show/business_show';
+import BusinessIndexContainer from './business_index/business_index_container';
 
 const Root = () => (
   <div>
@@ -19,6 +20,7 @@ const Root = () => (
       <Route exact path="/" component={IndexContainer} />
       <Route exact path="/maps" component={SearchContainer} />
       <Route exact path="/:businessId" component={BusinessShowContainer} />
+      <Route exact path="/search/:searchTerm" component={BusinessIndexContainer} />
       <Redirect to="/" />
     </Switch>
   </div>
