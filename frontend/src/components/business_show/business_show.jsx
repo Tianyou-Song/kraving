@@ -34,7 +34,9 @@ class BusinessShow extends React.Component {
   }
 
   componentDidUpdate() {
-        this.props.getBusiness(this.props.match.params.businessId)
+    if (!this.props.business) {
+      this.props.getBusiness(this.props.match.params.businessId)
+    }
   }
 
 
@@ -138,6 +140,7 @@ class BusinessShow extends React.Component {
 
 
   render(){
+    debugger;
     const seedCity = "San Francisco"
     return(
       <div className="business-show-page-container">

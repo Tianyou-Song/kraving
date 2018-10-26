@@ -57,3 +57,18 @@ export const yelpBiz = (id) => dispatch => {
       console.log(err);
     });
 }
+
+export const yelpReviews = (id) => dispatch => {
+  axios
+    .get('/api/yelp/reviews', {
+    params: {
+      id
+    }})
+    .then(res => {
+      const reviews = res.data
+      debugger;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
