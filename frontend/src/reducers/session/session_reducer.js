@@ -1,7 +1,9 @@
 import {SET_CURRENT_USER } from '../../util/session_api_util';
 
 const _nullUser = Object.freeze({
-  id: null
+  currentUser: {
+    id: null
+  }
 });
 
 const sessionReducer = (state = _nullUser, action) => {

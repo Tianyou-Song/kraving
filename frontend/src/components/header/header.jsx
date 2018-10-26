@@ -14,7 +14,7 @@ class Header extends React.Component {
   }
 
   renderLogout() {
-    if (this.props.currentUser) {
+    if (this.props.currentUser.id) {
       return (
         <div className="logout" onClick={() => this.handleLogout()}>Log out</div>
       );
