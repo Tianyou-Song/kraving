@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './index.css'
 import HeaderContainer from '../header/header_container';
@@ -60,7 +61,7 @@ class IndexPage extends React.Component {
         this.bizCategories(business)
             return(
               <div className="business-card-container-column" key={business.id}>
-                <div className="business-card-image"><img src={business.image_url}/></div>
+                <Link to={`/${business.id}`}><div className="business-card-image"><img src={business.image_url}/></div></Link>
                 <div className="business-card-name">{business.name}</div>
                 {this.bizCategories(business)}
                 <div className="business-card-rating">
@@ -78,12 +79,26 @@ class IndexPage extends React.Component {
     )
   }
 
+  title() {
+    const { location, searchTerm } = this.props;
+
+    if (searchTerm) {
+      return (
+        <h1 className="index-title">{`Best ${searchTerm} in ${location}`}</h1>
+      )
+    } else {
+      return (
+        <h1 className="index-title">{`Food Delivery in ${location}`}</h1>
+      )
+    }
+  }
+
 
   render(){
     const seedCity = "San Francisco"
     return <div className="index-page-container">
         <HeaderContainer />
-        <h1 className="index-title">Food Delivery in {seedCity}</h1>
+        {this.title()}
         {this.businessGrid()}
         <link href="css/hover.css" rel="stylesheet" media="all" />
       </div>;

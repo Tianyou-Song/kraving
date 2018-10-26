@@ -1,23 +1,23 @@
 import { connect } from 'react-redux';
-import Index from './index';
+import BusinessIndex from './business_index';
 import { yelpSearch } from '../../util/yelp_api_util';
 
 const mapStateToProps = ( { entities }, ownProps ) => {
-  const { searchTerm }  = ownProps
-  const { location, search } = entities;
+  const { searchTerm } = ownProps.match.params;
+  const { location, search  } = entities;
+
   return {
     location,
-    search,
-    searchTerm
+    searchTerm,
+    search
   }
 };
 
 const mapDispatchToProps = dispatch => ({
-  yelpSearch: (searchInfo) => dispatch(yelpSearch(searchInfo)),
-
+  yelpSearch: (searchInfo) => dispatch(yelpSearch(searchInfo))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Index);
+)(BusinessIndex);
