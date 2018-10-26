@@ -4,8 +4,8 @@ import SearchItemCSS from './searchbar_item.css'
 class SearchBarItem extends React.Component {
 
   render() {
-    const { bus, formType, loc, handleClick, show } = this.props;
 
+    const { bus, formType, loc, handleClick, show } = this.props;
     if (formType === 'yelp' && show) {
       return (
         <div className="search-dropdown-item">

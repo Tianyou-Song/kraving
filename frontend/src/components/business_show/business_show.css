@@ -6,6 +6,19 @@
   box-sizing: border-box;
 }
 
+.business-show-header{
+  /* background: yellow; */
+  height: 370px;
+  position: relative;
+  background-size: cover;
+  /* background-image: url(https://www.straight.com/files/v3/styles/gs_large/public/images/18/01/mcds_c._uber_eats.jpg?itok=lEd7_yS1); */
+  background-position: center center;
+  /* margin: 0 auto; */
+  /* text-align: center; */
+  /* justify-content: center; */
+  /* display: flex; */
+  /* align-items: baseline; */
+}
 
 .business-show-detail-container{
   background: white;
@@ -38,6 +51,7 @@
 }
 .business-show-name{
   margin-top: 5px;
+  margin-bottom: 40px;
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -46,7 +60,7 @@
   color: #262626;
 }
 .business-show-detail{
-  margin-top: 10%;
+  /* margin-top: 10%; */
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -55,19 +69,6 @@
   color: #757575;
 }
 
-.business-show-header{
-  /* background: yellow; */
-  height: 370px;
-  position: relative;
-  background-size: cover;
-  background-image: url(https://www.straight.com/files/v3/styles/gs_large/public/images/18/01/mcds_c._uber_eats.jpg?itok=lEd7_yS1);
-  background-position: center center;
-  /* margin: 0 auto; */
-  /* text-align: center; */
-  /* justify-content: center; */
-  /* display: flex; */
-  /* align-items: baseline; */
-}
 .index-title{
   font-family: sans-serif;
   font-style: normal;
