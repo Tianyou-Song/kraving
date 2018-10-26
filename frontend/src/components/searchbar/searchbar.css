@@ -23,7 +23,7 @@
 
 .fas {
   font-size: 24px;
-  margin: 20px;
+  margin-right: 20px;
 }
 
 .search-input {
@@ -39,12 +39,24 @@
   color: white;
 }
 
+.search-input-inner {
+  width: 100%;
+}
+
+.search-input-box {
+  width: 100%;
+}
+
 .search-dropdown {
   z-index: 1;
   position: absolute;
   border: 1px solid black;
   width: 108%;
   background: white;
+}
+
+.fa-times {
+  cursor: pointer;
 }
 
 /* searchbar */

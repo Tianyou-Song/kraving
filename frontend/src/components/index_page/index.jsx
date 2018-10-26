@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './index.css'
-import Header from '../header/header';
+import HeaderContainer from '../header/header_container';
 const mapStateToProps = state => {
   // city: return name of city we're looking for
   //businesses: return an array we will map over of ALL businesses in our database
@@ -101,14 +101,12 @@ class IndexPage extends React.Component {
 
   render(){
     const seedCity = "San Francisco"
-    return(
-      <div className="index-page-container">
-        <Header />
+    return <div className="index-page-container">
+        <HeaderContainer />
         <h1 className="index-title">Food Delivery in {seedCity}</h1>
         {this.businessGrid()}
-        <link href="css/hover.css" rel="stylesheet" media="all"/>
-      </div>
-    )
+        <link href="css/hover.css" rel="stylesheet" media="all" />
+      </div>;
   }
 }
 
