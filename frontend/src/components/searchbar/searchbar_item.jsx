@@ -10,7 +10,7 @@ class SearchBarItem extends React.Component {
     if (formType === 'yelp' && show) {
       return (
         <Link to={`/${bus.id}`}>
-        <div className="search-dropdown-item">
+        <div className="search-dropdown-item" onClick={() => handleClick('food')}>
           <div>
             <img className="search-dropdown-image" src={bus.image_url} />
           </div>
@@ -26,7 +26,7 @@ class SearchBarItem extends React.Component {
       )
     } else if (formType === 'google' && show) {
       return (
-        <div className="search-dropdown-item" onClick={() => handleClick(loc.description)}>
+        <div className="search-dropdown-item" onClick={() => handleClick('location', loc.description)}>
           <div className="search-dropdown-text">
             <li className="search-dropdown-title">{loc.description}</li>
           </div>

@@ -24,9 +24,6 @@ const mapDispatchToProps = dispatch => {
 class BusinessShow extends React.Component {
   constructor(props){
     super(props)
-    // this.state = { this.props.business }
-    // console.log(this.state);
-    // debugger
   }
 
   componentDidMount(){
@@ -34,6 +31,10 @@ class BusinessShow extends React.Component {
 
     // debugger
     this.props.getBusiness(this.props.match.params.businessId)
+  }
+
+  componentDidUpdate() {
+        this.props.getBusiness(this.props.match.params.businessId)
   }
 
 
