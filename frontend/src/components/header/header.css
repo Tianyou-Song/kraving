@@ -9,10 +9,28 @@
   font-weight: bold;
   color: white;
   font-family: Impact, Charcoal, sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   width: 15%;
+  margin-left: 5%
+}
+
+@media screen and (max-width: 600px) {
+  .header-logo{
+    /* margin-top: 20%;
+    width: 75%; */
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .header-logo{
+    /* margin-top: 20%;
+    width: 75%; */
+    /* font-size: 20px; */
+    display:none;
+    margin-left:none;
+  }
 }
 
 .header-logo-image {

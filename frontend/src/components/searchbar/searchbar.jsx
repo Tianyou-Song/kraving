@@ -142,13 +142,13 @@ class SearchBar extends React.Component {
         </div>
       </div>
 
-      <div className={`search-bar-container`}>
+      <div className={`search-bar-container-location`}>
 
         <i className="fas fa-map-marker-alt"></i>
         <div className="search-input">
           <div className="search-input-inner">
             <input type="text"
-              placeholder="San Franciso, CA"
+              placeholder="San Francisco, CA"
               className="search-input-box"
               onChange={this.update('location')}
               value={location}
