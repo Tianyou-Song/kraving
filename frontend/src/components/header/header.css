@@ -37,7 +37,7 @@
   object-fit: contain;
 }
 
-.logout {
+.logout-button {
   color: green;
   border: 1px black solid;
   cursor: pointer;

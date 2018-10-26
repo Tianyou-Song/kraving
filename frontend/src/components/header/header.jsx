@@ -13,13 +13,18 @@ class Header extends React.Component {
     this.props.logout();
   }
 
-  renderLogout() {
+  renderAuthButton() {
     if (this.props.currentUser.id) {
       return (
-        <div className="logout" onClick={() => this.handleLogout()}>Log out</div>
+        <div className="logout-button" onClick={() => this.handleLogout()}>Log out</div>
       );
     } else {
-      return null;
+      return (
+        <div>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+        </div>
+      );
     }
   }
 
@@ -32,7 +37,7 @@ class Header extends React.Component {
         </div>
 
         <SearchBarContainer />
-        {this.renderLogout()}
+        {this.renderAuthButton()}
       </div>
     );
   }
