@@ -18,74 +18,55 @@ class IndexPage extends React.Component {
   componentDidMount() {
     const { location, search, yelpSearch } = this.props;
     const searchInfo = {term: 'pizza', location: location, limit: 5}
-    debugger;
 
     if (Object.keys(search).length <= 0 ) {
-      debugger;
       yelpSearch(searchInfo)
     }
   }
 
+  bizCategories(biz) {
 
-  businessGrid(){
+    // {biz.categories.map(category => category.title)}
+    return (
+      <div className="business-card-categories">
+      {biz.categories.map((category, idx) => {
+        {if (idx != biz.categories.length - 1) {
+          return `${category.title} · `
+        } else {
+          return `${category.title}`
+        }}
+      })}
+      </div>
+    )
+    // biz.categories.map((category, idx) => {
+    //   if (idx != biz.categories.length) {
+    //     return `${category.title} · `
+    //   } else {
+    //     return `${category.title}`
+    //   }
+    // })
+    //
+    // debugger;
+  }
 
-    const seedData = [
-    {
-      id: 1,
-      image: "https://www.straight.com/files/v3/styles/gs_large/public/images/18/01/mcds_c._uber_eats.jpg?itok=lEd7_yS1",
-      name: "McDonald's",
-      price: "$",
-      cuisines: "American",
-      rating: 4.4
-    },
-    {
-      id: 2,
-      image: "https://duyt4h9nfnj50.cloudfront.net/resized/2926d161670705623b4940e66693904b-w640-b3.jpg",
-      name: "The Posh Bagel",
-      price: "$",
-      cuisines: "Breakfast and Brunch",
-      rating: 4.7
-    },
-    {
-      id: 3,
-      image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
-      name: "The Halal Guys",
-      price: "$$",
-      cuisines: "Halal",
-      rating: 4.6
-    },
-    {
-      id: 4,
-      image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
-      name: "The Halal Guys",
-      price: "$$",
-      cuisines: "Halal",
-      rating: 4.6
-    },
-    {
-      id: 5,
-      image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
-      name: "The Halal Guys",
-      price: "$$",
-      cuisines: "Halal",
-      rating: 4.6
-    }
-  ];
 
-    // map over each business
+  businessGrid() {
+
+    const { search } = this.props;
+
+
     const mapBusinesses =
-      seedData.map( business => {
-          //map over each cuisine since businesses can have multiple
-          // const cuisines = business.cuisines.map( cuisine => {
-          //   return(
-          //     <li>{cuisine}</li>
-          //   )
-          // })
+      Object.values(search).map(business => {
+        this.bizCategories(business)
             return(
               <div className="business-card-container-column" key={business.id}>
-                <div className="business-card-image"><img src={business.image}/></div>
+                <div className="business-card-image"><img src={business.image_url}/></div>
                 <div className="business-card-name">{business.name}</div>
-                <div className="business-card-detail">💰{business.price} · {business.cuisines} · ⭐{business.rating}</div>
+                {this.bizCategories(business)}
+                <div className="business-card-rating">
+                  <img src={`/images/stars/${business.rating}.png`}></img>
+                  <span>({business.review_count})</span>
+                </div>
               </div>
         )
       })
@@ -108,5 +89,62 @@ class IndexPage extends React.Component {
       </div>;
   }
 }
+
+//   const seedData = [
+//   {
+//     id: 1,
+//     image: "https://www.straight.com/files/v3/styles/gs_large/public/images/18/01/mcds_c._uber_eats.jpg?itok=lEd7_yS1",
+//     name: "McDonald's",
+//     price: "$",
+//     cuisines: "American",
+//     rating: 4.4
+//   },
+//   {
+//     id: 2,
+//     image: "https://duyt4h9nfnj50.cloudfront.net/resized/2926d161670705623b4940e66693904b-w640-b3.jpg",
+//     name: "The Posh Bagel",
+//     price: "$",
+//     cuisines: "Breakfast and Brunch",
+//     rating: 4.7
+//   },
+//   {
+//     id: 3,
+//     image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
+//     name: "The Halal Guys",
+//     price: "$$",
+//     cuisines: "Halal",
+//     rating: 4.6
+//   },
+//   {
+//     id: 4,
+//     image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
+//     name: "The Halal Guys",
+//     price: "$$",
+//     cuisines: "Halal",
+//     rating: 4.6
+//   },
+//   {
+//     id: 5,
+//     image: "https://duyt4h9nfnj50.cloudfront.net/resized/70f60c3fc92c8b234d34eb9ad12c6a80-w2880-49.jpg",
+//     name: "The Halal Guys",
+//     price: "$$",
+//     cuisines: "Halal",
+//     rating: 4.6
+//   }
+// ];
+
+// <div className="business-card-detail">💰{business.price} · {business.rating} · ⭐{business.review_count}</div>
+
+  // const mapBusinesses =
+  //   seedData.map( business => {
+  //         return(
+  //           <div className="business-card-container-column" key={business.id}>
+  //             <div className="business-card-image"><img src={business.image}/></div>
+  //             <div className="business-card-name">{business.name}</div>
+  //             <div className="business-card-detail">💰{business.price} · {business.cuisines} · ⭐{business.rating}</div>
+  //           </div>
+  //     )
+  //   })
+
 
 export default connect(mapStateToProps, null)(IndexPage);
