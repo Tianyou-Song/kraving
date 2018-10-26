@@ -4,9 +4,16 @@ import './header.css';
 import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props)
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
   handleLogout() {
+    debugger
     console.log(this.props)
-    this.props.logoutUser();
+    this.props.logout();
   }
 
   render() {
