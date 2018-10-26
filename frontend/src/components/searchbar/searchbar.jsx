@@ -28,6 +28,8 @@ class SearchBar extends React.Component {
       this.setState({[field]: e.currentTarget.value})
       if (field === 'location') {
         this.setState({showlocationDropdown: true})
+      } else if (field === 'searchInfo') {
+        this.setState({showFoodDropdown: true})
       }
     }
   }
@@ -89,9 +91,13 @@ class SearchBar extends React.Component {
       })
   }
 
-  handleClick(loc) {
-    this.setState({location: loc})
-    this.setState({showlocationDropdown: false})
+  handleClick(type, value) {
+    if (type === 'location') {
+      this.setState({location: value})
+      this.setState({showlocationDropdown: false})
+    } else if (type === 'food') {
+      this.setState({showFoodDropdown: false})
+    }
     // const dropdown = document.getElementById('search-dropdown-loc')
     // dropdown.classList.add('display-none')
   }
@@ -131,7 +137,7 @@ class SearchBar extends React.Component {
         <div className="searchbar-dropdown" id="search-dropdown-food">
           {yelpResponse.map(bus => (
             <SearchBarItem bus={bus} key={bus.id} formType='yelp'
-            show={showFoodDropdown}/>
+            show={showFoodDropdown} handleClick={this.handleClick}/>
           ))}
         </div>
       </div>
