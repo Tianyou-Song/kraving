@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import SearchBarItem from './searchbar_item';
-import SearchCSS from './searchbar.css'
+import SearchCSS from './searchbar.css';
 // import SearchDropdown from './searchbar_dropdown';
+import { debounce } from 'lodash';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class SearchBar extends React.Component {
     }
   }
 
-  yelpSearch(searchInfo) {
+  yelpSearch = debounce((searchInfo) => {
     const { yelpResponse } = this.state;
     axios
       .get('/api/yelp/search', {
@@ -73,7 +74,7 @@ class SearchBar extends React.Component {
       .catch(err => {
         console.log(err);
       })
-  }
+  }, 1000);
 
   googleSearch(location) {
     const { googleResponse } = this.state;
