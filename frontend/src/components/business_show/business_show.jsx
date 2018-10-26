@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './business_show.css'
 import { yelpBiz } from '../../util/yelp_api_util.js'
-import HeaderContainer from '../header/header_container';
+
 
 const mapStateToProps = (state, ownProps) => {
   // foodItems: array of food objects
@@ -144,7 +144,6 @@ class BusinessShow extends React.Component {
     const seedCity = "San Francisco"
     return(
       <div className="business-show-page-container">
-      <HeaderContainer />
         {this.businessHeader()}
         <h1 className="index-title">Most Popular</h1>
         {this.foodGrid()}
