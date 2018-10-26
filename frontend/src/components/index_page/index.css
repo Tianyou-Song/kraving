@@ -94,7 +94,7 @@
   object-fit: cover;
 }
 
-img:hover, img:focus, img:active {
+.business-card-image > img:hover, img:focus, img:active {
   cursor: pointer;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
