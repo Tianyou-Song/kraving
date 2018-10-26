@@ -9,7 +9,8 @@ const searchReducer = (state = {}, action) => {
     case SET_SEARCH_RESULTS:
     const new_state = {}
     action.payload.forEach(biz => new_state[biz.id] = biz)
-    return {...state, ...new_state}
+    // return {...state, ...new_state}
+    return new_state
     case GET_BIZ:
       return  {...state, ...{[action.business.id]: action.business}};
     default:
