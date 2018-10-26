@@ -66,74 +66,38 @@ class BusinessShow extends React.Component {
 
   foodGrid(){
 
-    const SEED_FOOD = [
+    const SEED_REVIEW = [
     {
       id: 1,
-      image: "http://www.tficanada.com/wordpress/wp-content/uploads/2017/02/h-mcdonalds-Double-Quarter-Pounder-with-Cheese-Extra-Value-Meals-1.png",
-      name: "Double Quarter with Cheese Meal",
-      price: "$10.50",
-      calories: 875,
-      rating: 4.4
-    },
-    {
-      id: 2,
-      image: "https://www.mcdonalds.com/content/dam/usa/nutrition/items/evm/h-mcdonalds-Big-Mac-Extra-Value-Meals.jpg",
-      name: "Big Mac Meal",
-      price: "$10.08",
-      calories: 1120,
-      rating: 4.8
-    },
-    {
-      id: 3,
-      image: "https://www.unilad.co.uk/wp-content/uploads/2015/09/UNILAD-Screen-Shot-2015-09-16-at-18.45.355.png",
-      name: "20 McNuggets Meal",
-      price: "$8.59",
-      calories: 675,
-      rating: 4.7
-    },
-    {
-      id: 4,
-      image: "https://s3-media4.fl.yelpcdn.com/bphoto/RH0rP7ArmGdWBXno6GZfXw/o.jpg",
-      name: "Crispy Buttermilk Chicken Meal",
-      price: "$9.78",
-      calories: 825,
-      rating: 3.9
-    },
-    {
-      id: 5,
-      image: "https://s3-media2.fl.yelpcdn.com/bphoto/jKVd9qKfWtRszoVZD2vPdg/o.jpg",
-      name: "Grilled Artisan Chicken Meal",
-      price: "$10.08",
-      calories: 978,
-      rating: 4.9
-    },
-    {
-      id: 6,
-      image: "https://www.mcdonalds.com/content/dam/usa/documents/glazedtenders/2018/6-piece.jpg",
-      name: "6 Piece Glazed Chicken Tenders Meal",
-      price: "$11.64",
-      calories: 970,
-      rating: 4.5
-    },
+      // image: "http://www.tficanada.com/wordpress/wp-content/uploads/2017/02/h-mcdonalds-Double-Quarter-Pounder-with-Cheese-Extra-Value-Meals-1.png",
+      user_image_url: "http://www.tficanada.com/wordpress/wp-content/uploads/2017/02/h-mcdonalds-Double-Quarter-Pounder-with-Cheese-Extra-Value-Meals-1.png",
+      user_name:"Tim Song",
+      text: "Taqueria Guadalajara is pretty good, with some great meat choices. My favorites so far have definitely been the grilled chicken and carnitas. The carne asada was also good, but just didn't stand out relative to all the other Mexican restaurants. The grilled chicken had a great flavor and a great grilled texture on the outside. The carnitas were also a bit crispy, and not just soft and soggy, which I prefer. Having crispy carnitas can often leave them tasting dry, but that wasn't the case at all here. The burritos are huge! The prices are a bit higher than what Im used to for a burrito, but the size and amount of meat comes close to justifying the price. I also liked the use of avocado slices in the burritos, as opposed to guacamole. The service is very quick and it doesnt take long to get your food, even when busy. The horchata here is also good, although a bit sweeter than Id personally like, but most of them are.I will say I was a bit disappointed with the salsa bar. Im not sure if it was just a fluke when I went, but there were really only three options when I went: red (tomato), green (tomatillo) and habanero. The red and green salsas were not spicy at all, but the habanero salsa was quite spicy, and I have a very high tolerance. I would have liked to see more variety of salsas.",
+      rating: 4
 
-  ];
+      // price: "$10.50",
+      // calories: 875,
+      // rating: 4.4
+    }]
+
+
 
     // map over each business
-    const mapFoods =
-      SEED_FOOD.map( food => {
+    const mapReviews =
+      SEED_REVIEW.map( review => {
         // debugger
             return(
-              <div className="food-card-container-column" key={food.id}>
-                <div className="food-card-image"><img src={food.image}/></div>
-                <div className="food-card-name">{food.name}</div>
-                <div className="food-card-detail">💰{food.price} · {food.calories} Cal · ⭐{food.rating}</div>
+              <div className="review-card-container-column" key={review.id}>
+                <div className="review-card-image"><img src={review.user_image_url}/></div>
+                <div className="review-card-name">{review.user_name}</div>
+                <div className="review-card-text">{review.text}</div>
               </div>
             )
           })
 
     return(
       <div className="food-list-container-row">
-        {mapFoods}
+        {mapReviews}
       </div>
     )
   }
