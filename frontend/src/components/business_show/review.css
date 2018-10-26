@@ -1,0 +1,24 @@
+.review-card-container{
+  display: flex;
+  border:black 1px solid;
+  margin: auto;
+  width: 80%;
+  padding: 2%;
+
+}
+
+.review-card-image img{
+  border:red 1px solid;
+  width: 100%;
+}
+.review-card-detail{
+  border:yellow 1px solid;
+  width: 100%;
+}
+/* .review-card-container img{
+  border:green 1px solid;
+  width: auto;
+  max-width: 600px;
+  max-height:auto;
+  border-radius: 6px;
+} */
