@@ -7,7 +7,10 @@ const searchReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case SET_SEARCH_RESULTS:
-      return action.payload;
+    const new_state = {}
+    action.payload.forEach(biz => new_state[biz.id] = biz)
+    debugger;
+    return {...state, ...new_state}
     case GET_BIZ:
       return  {...state, ...{[action.business.id]: action.business}};
     default:

@@ -2,7 +2,14 @@ import axios from 'axios';
 
 export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
 export const GET_BIZ = 'GET_BIZ'
+export const SET_LOCATION = 'SET_LOCATION'
 
+export const setLocation = location => {
+  return {
+    type: SET_LOCATION,
+    location
+  };
+};
 
 export const setSearchResults = payload => {
   return {
@@ -10,6 +17,7 @@ export const setSearchResults = payload => {
     payload
   };
 };
+
 
 export const getBiz = business => {
   return {
@@ -19,7 +27,7 @@ export const getBiz = business => {
 }
 
 
-export const yelpTest = (searchInfo) => dispatch => {
+export const yelpSearch = (searchInfo) => dispatch => {
   axios
     .get('/api/yelp/search', {
     params: {
@@ -36,14 +44,12 @@ export const yelpTest = (searchInfo) => dispatch => {
 
 
 export const yelpBiz = (id) => dispatch => {
-  // debugger
   axios
     .get('/api/yelp/biz', {
     params: {
       id
     }})
     .then(res => {
-      // debugger
       const business = res.data
       dispatch(getBiz(business))
     })

@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from '../searchbar/searchbar';
+import SearchBarContainer from '../searchbar/searchbar_container';
 import './header.css';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ class Header extends React.Component {
           <span className="header-title">KRAVING</span>
         </div>
 
-        <SearchBar />
+        <SearchBarContainer />
         {this.renderLogout()}
       </div>;
   }

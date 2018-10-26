@@ -15,17 +15,16 @@ const mapStateToProps = state => {
 
 class IndexPage extends React.Component {
 
+  componentDidMount() {
+    const { location, search, yelpSearch } = this.props;
+    const searchInfo = {term: 'pizza', location: location, limit: 5}
+    debugger;
 
-  searchBar(){
-      //search bar will go here
-    return(
-      <div className="search-container">
-
-      </div>
-    )
+    if (Object.keys(search).length <= 0 ) {
+      debugger;
+      yelpSearch(searchInfo)
+    }
   }
-
-
 
 
   businessGrid(){

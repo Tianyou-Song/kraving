@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.yelpTest = yelpTest;
   window.registerUser = APIUtil.registerUser;
   window.yelpBiz = yelpBiz;
   // Check for token
