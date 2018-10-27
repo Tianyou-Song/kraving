@@ -31,11 +31,11 @@
     width: 100%;
 }
 
-.login-instead {
+.login-link {
     text-decoration: underline;
 }
 
-.signup-instead {
+.signup-link {
     text-decoration: underline;
 }
 
