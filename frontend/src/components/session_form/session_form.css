@@ -14,14 +14,7 @@
     background-color: #FF7D7D;
     border-radius: 10px;
     padding: 10px;
-}
-
-.name-field {
-
-}
-
-.email-field {
-
+    width: 25%;
 }
 
 .login-input {
@@ -39,10 +32,6 @@
     text-decoration: underline;
 }
 
-.password-field {
-    
-}
-
 .session-submit-container {
     display: flex;
     justify-content: center;
@@ -55,15 +44,10 @@
     padding: 5px;
     margin: 5px;
     background-color: white;
-
 }
 
 .session-submit:hover {
     cursor: pointer;
-}
-
-.session-submit:target {
-    background: blue;
 }
 
 .errors {
