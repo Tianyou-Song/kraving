@@ -17,7 +17,7 @@
   border-left: 1px solid white;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 830px) {
   .search-bar-container{
     /* margin-top: 20%;
     width: 75%; */
@@ -44,7 +44,7 @@
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 830px) {
   .search-bar-container-location{
     /* margin-top: 20%;
     width: 75%; */
