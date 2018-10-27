@@ -44,10 +44,11 @@ class BusinessShow extends React.Component {
       getYelpReviews(businessId)
     }
 
-    // if (business && Object.keys(reviews.zomatoReviews).length <= 0) {
-    //   debugger;
-    //   // getZomatoReviews()
-    // }
+    if (business && Object.keys(reviews.zomatoReviews).length <= 0) {
+      const { latitude, longitude } = business.coordinates;
+      getZomatoReviews({q: business.name, lat: latitude, lon: longitude, count: 1})
+    }
+    
   }
 
   componentDidUpdate() {
@@ -56,13 +57,13 @@ class BusinessShow extends React.Component {
       getBusiness(businessId)
     }
 
-    if (business && Object.keys(reviews).length <= 0) {
+    if (business && Object.keys(reviews.yelpReviews).length <= 0) {
       getYelpReviews(businessId)
     }
 
     if (business && Object.keys(reviews.zomatoReviews).length <= 0) {
-      debugger;
-      getZomatoReviews()
+      const { latitude, longitude } = business.coordinates;
+      getZomatoReviews({q: business.name, lat: latitude, lon: longitude, count: 1})
     }
   }
 

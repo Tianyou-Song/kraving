@@ -15,7 +15,6 @@ export const getZomatoReviews = (searchInfo) => dispatch => {
       searchInfo
     }})
     .then(res => {
-      debugger;
       const reviews = res.data
       dispatch(receiveZomReviews(reviews))
     })
