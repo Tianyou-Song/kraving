@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './business_show.css';
-import { yelpBiz, yelpReviews } from '../../util/yelp_api_util.js';
+import { yelpBiz, yelpReviews, clearReviews } from '../../util/yelp_api_util.js';
 import { getZomatoReviews } from '../../util/zomato_api_util.js';
 import HeaderContainer from '../header/header_container';
 
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => {
   return({
     getBusiness: (id) => dispatch(yelpBiz(id)),
     getYelpReviews: (id) => dispatch(yelpReviews(id)),
-    getZomatoReviews: (searchInfo) => dispatch(getZomatoReviews(searchInfo))
+    getZomatoReviews: (searchInfo) => dispatch(getZomatoReviews(searchInfo)),
+    clearReviews: () => dispatch(clearReviews())
 
   })
 }
@@ -32,12 +33,20 @@ const mapDispatchToProps = dispatch => {
 class BusinessShow extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      previousBiz: {}
+    }
   }
 
   componentDidMount(){
-    const { business, getBusiness, businessId, reviews, getYelpReviews } = this.props;
+    const { business, getBusiness, businessId, reviews, getYelpReviews, clearReviews } = this.props;
     if (!business) {
       getBusiness(businessId)
+      clearReviews()
+    }
+
+    if (business) {
+      this.setState({previousBiz: business})
     }
 
     if (business && Object.keys(reviews.yelpReviews).length <= 0) {
@@ -48,13 +57,19 @@ class BusinessShow extends React.Component {
       const { latitude, longitude } = business.coordinates;
       getZomatoReviews({q: business.name, lat: latitude, lon: longitude, count: 1})
     }
-    
+
   }
 
   componentDidUpdate() {
-    const { business, getBusiness, businessId, getYelpReviews, getZomatoReviews, reviews } = this.props;
+    const { business, getBusiness, businessId, getYelpReviews, getZomatoReviews, reviews , clearReviews} = this.props;
+
     if (!business) {
       getBusiness(businessId)
+    }
+
+    if (business && this.state.previousBiz !== business) {
+      this.setState({previousBiz: business})
+      clearReviews()
     }
 
     if (business && Object.keys(reviews.yelpReviews).length <= 0) {
