@@ -106,7 +106,7 @@ class BusinessShow extends React.Component {
     return(
       <div className="business-show-page-container">
         {this.businessHeader()}
-        <h1 className="index-title">Most Popular</h1>
+        <h1 className="business-show-index-title">Most Popular</h1>
         {this.reviewGrid()}
         <link href="css/hover.css" rel="stylesheet" media="all"/>
       </div>
