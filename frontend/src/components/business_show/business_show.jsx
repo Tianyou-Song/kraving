@@ -84,7 +84,9 @@ class BusinessShow extends React.Component {
       getZomatoReviews({q: business.name, lat: latitude, lon: longitude, count: 1})
     }
   }
-
+  componentWillUnmount(){
+    this.props.clearReviews()
+  }
 
   businessHeader(){
     if (this.props.business){
