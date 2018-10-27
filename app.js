@@ -6,6 +6,7 @@ const db = require('./config/keys').mongoURI;
 const users = require('./routes/api/users');
 const yelp = require('./routes/api/yelp');
 const google = require('./routes/api/google');
+const zomato = require('./routes/api/zomato');
 const passport = require('passport');
 require('./config/passport')(passport);
 
@@ -28,6 +29,7 @@ app.get('/test', (req, res) => {
 app.use("/api/users", users);
 app.use("/api/yelp", yelp);
 app.use("/api/google", google);
+app.use("/api/zomato", zomato);
 
 const port = process.env.PORT || 6000;
 

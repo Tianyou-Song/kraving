@@ -1,21 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './business_show.css'
-import { yelpBiz } from '../../util/yelp_api_util.js'
-import './review.css'
 
+import './business_show.css';
+import { yelpBiz, yelpReviews, clearReviews } from '../../util/yelp_api_util.js';
+import { getZomatoReviews } from '../../util/zomato_api_util.js';
+import HeaderContainer from '../header/header_container';
+import './business_show.css'
+import './review.css'
 
 const mapStateToProps = (state, ownProps) => {
   // foodItems: array of food objects
   // businesses: return an array we will map over of ALL businesses in our database
+
+  // debugger
+  const business = state.entities.search[ownProps.match.params.businessId]
+
   return({
-    business: state.entities.search[ownProps.match.params.businessId]
+    business: business,
+    businessId: ownProps.match.params.businessId,
+    reviews: state.entities.reviews
+    // foodItems: this.state.business.food
   })
 }
 
 const mapDispatchToProps = dispatch => {
   return({
-    getBusiness: (id) => dispatch(yelpBiz(id))
+    getBusiness: (id) => dispatch(yelpBiz(id)),
+    getYelpReviews: (id) => dispatch(yelpReviews(id)),
+    getZomatoReviews: (searchInfo) => dispatch(getZomatoReviews(searchInfo)),
+    clearReviews: () => dispatch(clearReviews())
+
   })
 }
 
@@ -23,15 +37,51 @@ const mapDispatchToProps = dispatch => {
 class BusinessShow extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      previousBiz: {}
+    }
   }
 
   componentDidMount(){
-    this.props.getBusiness(this.props.match.params.businessId)
+    const { business, getBusiness, businessId, reviews, getYelpReviews, clearReviews } = this.props;
+    if (!business) {
+      getBusiness(businessId)
+      clearReviews()
+    }
+
+    if (business) {
+      this.setState({previousBiz: business})
+    }
+
+    if (business && Object.keys(reviews.yelpReviews).length <= 0) {
+      getYelpReviews(businessId)
+    }
+
+    if (business && Object.keys(reviews.zomatoReviews).length <= 0) {
+      const { latitude, longitude } = business.coordinates;
+      getZomatoReviews({q: business.name, lat: latitude, lon: longitude, count: 1})
+    }
   }
 
   componentDidUpdate() {
-    if (!this.props.business) {
-      this.props.getBusiness(this.props.match.params.businessId)
+    const { business, getBusiness, businessId, getYelpReviews, getZomatoReviews, reviews , clearReviews} = this.props;
+
+    if (!business) {
+      getBusiness(businessId)
+    }
+
+    if (business && this.state.previousBiz !== business) {
+      this.setState({previousBiz: business})
+      clearReviews()
+    }
+
+    if (business && Object.keys(reviews.yelpReviews).length <= 0) {
+      getYelpReviews(businessId)
+    }
+
+    if (business && Object.keys(reviews.zomatoReviews).length <= 0) {
+      const { latitude, longitude } = business.coordinates;
+      getZomatoReviews({q: business.name, lat: latitude, lon: longitude, count: 1})
     }
   }
 
@@ -101,7 +151,6 @@ class BusinessShow extends React.Component {
 
 
   render(){
-    // debugger;
     const seedCity = "San Francisco"
     return(
       <div className="business-show-page-container">

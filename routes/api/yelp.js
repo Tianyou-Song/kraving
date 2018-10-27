@@ -9,7 +9,6 @@ const client = yelp.client(apiKey);
 
 
 const yelpSearch = (searchRequest) => {
-  debugger;
   return (
     client.search(searchRequest).then(response => {
       const { businesses } = response.jsonBody;
