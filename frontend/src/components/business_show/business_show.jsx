@@ -61,14 +61,14 @@ class BusinessShow extends React.Component {
     const SEED_REVIEW = [
     {
       id: 1,
-      user_image_url: "http://www.tficanada.com/wordpress/wp-content/uploads/2017/02/h-mcdonalds-Double-Quarter-Pounder-with-Cheese-Extra-Value-Meals-1.png",
+      user_image_url: "https://s3-media1.fl.yelpcdn.com/bphoto/uQ3_iuhf4H8asAuNw0woYg/o.jpg",
       user_name:"Tim Song",
       text: "Taqueria Guadalajara is pretty good, with some great meat choices. My favorites so far have definitely been the grilled chicken and carnitas. The carne asada was also good, but just didn't stand out relative to all the other Mexican restaurants. The grilled chicken had a great flavor and a great grilled texture on the outside. The carnitas were also a bit crispy, and not just soft and soggy, which I prefer. Having crispy carnitas can often leave them tasting dry, but that wasn't the case at all here. The burritos are huge! The prices are a bit higher than what Im used to for a burrito, but the size and amount of meat comes close to justifying the price. I also liked the use of avocado slices in the burritos, as opposed to guacamole. The service is very quick and it doesnt take long to get your food, even when busy. The horchata here is also good, although a bit sweeter than Id personally like, but most of them are.I will say I was a bit disappointed with the salsa bar. Im not sure if it was just a fluke when I went, but there were really only three options when I went: red (tomato), green (tomatillo) and habanero. The red and green salsas were not spicy at all, but the habanero salsa was quite spicy, and I have a very high tolerance. I would have liked to see more variety of salsas.",
       rating: 4
     },
     {
       id: 2,
-      user_image_url: "http://www.tficanada.com/wordpress/wp-content/uploads/2017/02/h-mcdonalds-Double-Quarter-Pounder-with-Cheese-Extra-Value-Meals-1.png",
+      user_image_url: "https://s3-media1.fl.yelpcdn.com/bphoto/uQ3_iuhf4H8asAuNw0woYg/o.jpg",
       user_name:"Tim Song",
       text: "Taqueria Guadalajara is pretty good, with some great meat choices. My favorites so far have definitely been the grilled chicken and carnitas. The carne asada was also good, but just didn't stand out relative to all the other Mexican restaurants. The grilled chicken had a great flavor and a great grilled texture on the outside. The carnitas were also a bit crispy, and not just soft and soggy, which I prefer. Having crispy carnitas can often leave them tasting dry, but that wasn't the case at all here. The burritos are huge! The prices are a bit higher than what Im used to for a burrito, but the size and amount of meat comes close to justifying the price. I also liked the use of avocado slices in the burritos, as opposed to guacamole. The service is very quick and it doesnt take long to get your food, even when busy. The horchata here is also good, although a bit sweeter than Id personally like, but most of them are.I will say I was a bit disappointed with the salsa bar. Im not sure if it was just a fluke when I went, but there were really only three options when I went: red (tomato), green (tomatillo) and habanero. The red and green salsas were not spicy at all, but the habanero salsa was quite spicy, and I have a very high tolerance. I would have liked to see more variety of salsas.",
       rating: 4
@@ -86,6 +86,7 @@ class BusinessShow extends React.Component {
                 <div className="review-card-image"><img src={review.user_image_url}/></div>
                 <div className="review-card-detail">
                   <div className="review-card-name">{review.user_name}</div>
+                  <div className="review-card-rating">{review.rating}</div>
                   <div className="review-card-text">{review.text}</div>
                 </div>
               </div>
