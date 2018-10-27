@@ -79,14 +79,13 @@ class BusinessShow extends React.Component {
     const mapReviews =
       SEED_REVIEW.map( review => {
         // debugger
-        // <img src={`/images/stars/${business.rating}.png`}></img>
 
             return(
               <div className="review-card-container" key={review.id}>
                 <div className="review-card-image"><img src={review.user_image_url}/></div>
                 <div className="review-card-detail">
                   <div className="review-card-name">{review.user_name}</div>
-                  <div className="review-card-rating">{review.rating}</div>
+                  <div className="review-card-rating"><img src={`/images/stars/${review.rating}.png`}></img></div>
                   <div className="review-card-text">{review.text}</div>
                 </div>
               </div>
@@ -107,7 +106,7 @@ class BusinessShow extends React.Component {
     return(
       <div className="business-show-page-container">
         {this.businessHeader()}
-        <h1 className="index-title">Most Popular</h1>
+        <h1 className="business-show-index-title">Most Popular</h1>
         {this.reviewGrid()}
         <link href="css/hover.css" rel="stylesheet" media="all"/>
       </div>

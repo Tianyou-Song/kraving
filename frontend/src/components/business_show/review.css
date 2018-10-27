@@ -7,18 +7,42 @@
 
 }
 
+@media screen and (max-width:990px){
+  .review-card-container{
+      display: table;
+  }
+}
+
 .review-card-image img{
-  border:red 1px solid;
+  /* border:red 1px solid; */
   width: 95%;
+  border-radius: 6px
 }
 .review-card-detail{
-  border:yellow 1px solid;
+  /* border:yellow 1px solid; */
   width: 100%;
 }
-/* .review-card-container img{
-  border:green 1px solid;
-  width: auto;
-  max-width: 600px;
-  max-height:auto;
-  border-radius: 6px;
-} */
+
+.review-card-name{
+  margin: 10px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #262626;
+}
+.review-card-rating img{
+  margin: 10px;
+  width: 20%;
+}
+
+.review-card-text{
+  margin: 10px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #757575;
+
+}
