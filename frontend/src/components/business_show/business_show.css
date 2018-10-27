@@ -12,7 +12,8 @@
 }
 
 .business-show-detail-container{
-  background: white;
+  /* background: white; */
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 30px;
   height: 60%;
   width: 30%;
@@ -46,12 +47,12 @@
   color: #262626;
 }
 .business-show-detail{
-  font-family: sans-serif;
+  font-family: unset;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  color: #757575;
+  color: black;
 }
 
 .business-show-index-title{
