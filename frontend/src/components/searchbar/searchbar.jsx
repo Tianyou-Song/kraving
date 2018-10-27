@@ -125,7 +125,7 @@ class SearchBar extends React.Component {
         <div className="search-input">
           <div className="search-input-inner">
             <input type="text"
-              placeholder="Pizza, sushi, donuts"
+              placeholder="Pizza, Sushi, Donuts"
               className="search-input-box"
               onChange={this.update('searchInfo')}
               value={searchInfo}

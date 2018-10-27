@@ -33,7 +33,9 @@ class Header extends React.Component {
       <div className="header-container">
 
         <div className="header-logo">
-          <span className="header-title">KRAVING</span>
+          <Link to='/' className='header-title'>
+            KRAVING
+          </Link>
         </div>
 
         <SearchBarContainer />
