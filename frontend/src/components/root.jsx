@@ -11,9 +11,12 @@ import SearchContainer from './google_map/search';
 import IndexContainer from './index_page/index_container';
 import BusinessShowContainer from './business_show/business_show';
 import BusinessIndexContainer from './business_index/business_index_container';
+import HeaderContainer from './header/header_container';
 
 const Root = () => (
   <div>
+    <HeaderContainer />
+
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

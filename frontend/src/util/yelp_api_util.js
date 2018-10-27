@@ -1,13 +1,21 @@
 import axios from 'axios';
 
 export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
-export const GET_BIZ = 'GET_BIZ'
-export const SET_LOCATION = 'SET_LOCATION'
+export const GET_BIZ = 'GET_BIZ';
+export const SET_LOCATION = 'SET_LOCATION';
+export const RECEIVE_YELP_REVIEWS = 'RECEIVE_YELP_REVIEWS';
+export const CLEAR_REVIEWS = 'CLEAR_REVIEWS';
 
 export const setLocation = location => {
   return {
     type: SET_LOCATION,
     location
+  };
+};
+
+export const clearReviews = () => {
+  return {
+    type: CLEAR_REVIEWS
   };
 };
 
@@ -23,6 +31,14 @@ export const getBiz = business => {
   return {
     type: GET_BIZ,
     business
+  }
+}
+
+
+export const receiveReviews = payload => {
+  return {
+    type: RECEIVE_YELP_REVIEWS,
+    payload
   }
 }
 
@@ -66,7 +82,7 @@ export const yelpReviews = (id) => dispatch => {
     }})
     .then(res => {
       const reviews = res.data
-      debugger;
+      dispatch(receiveReviews(reviews))
     })
     .catch(err => {
       console.log(err);

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './index.css'
-import HeaderContainer from '../header/header_container';
 const mapStateToProps = state => {
   // city: return name of city we're looking for
   //businesses: return an array we will map over of ALL businesses in our database
@@ -97,7 +96,6 @@ class IndexPage extends React.Component {
   render(){
     const seedCity = "San Francisco"
     return <div className="index-page-container">
-        <HeaderContainer />
         {this.title()}
         {this.businessGrid()}
         <link href="css/hover.css" rel="stylesheet" media="all" />
