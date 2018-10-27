@@ -3,7 +3,7 @@ import axios from 'axios';
 export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
 export const GET_BIZ = 'GET_BIZ';
 export const SET_LOCATION = 'SET_LOCATION';
-export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
+export const RECEIVE_YELP_REVIEWS = 'RECEIVE_YELP_REVIEWS';
 
 export const setLocation = location => {
   return {
@@ -30,7 +30,7 @@ export const getBiz = business => {
 
 export const receiveReviews = payload => {
   return {
-    type: RECEIVE_REVIEWS,
+    type: RECEIVE_YELP_REVIEWS,
     payload
   }
 }

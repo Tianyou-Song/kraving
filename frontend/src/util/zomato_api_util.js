@@ -1,7 +1,14 @@
 import axios from 'axios';
+export const RECEIVE_ZOM_REVIEWS = 'RECEIVE_ZOM_REVIEWS';
 
+export const receiveZomReviews = payload => {
+  return {
+    type: RECEIVE_ZOM_REVIEWS,
+    payload
+  }
+}
 
-export const zomSearch = (searchInfo) => dispatch => {
+export const getZomatoReviews = (searchInfo) => dispatch => {
   axios
     .get('/api/zomato/search', {
     params: {
@@ -9,8 +16,8 @@ export const zomSearch = (searchInfo) => dispatch => {
     }})
     .then(res => {
       debugger;
-      // const businesses = res.data
-      // dispatch(setSearchResults(businesses))
+      const reviews = res.data
+      dispatch(receiveZomReviews(reviews))
     })
     .catch(err => {
       console.log(err);

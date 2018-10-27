@@ -16,10 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.registerUser = APIUtil.registerUser;
-  window.yelpBiz = yelpBiz;
-  window.yelpReviews = yelpReviews;
-  window.zomSearch = zomSearch;
   // Check for token
   if (localStorage.jwtToken) {
     // Set auth token header auth

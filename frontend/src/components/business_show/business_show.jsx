@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './business_show.css'
-import { yelpBiz, yelpReviews } from '../../util/yelp_api_util.js'
+import './business_show.css';
+import { yelpBiz, yelpReviews } from '../../util/yelp_api_util.js';
+import { getZomatoReviews } from '../../util/zomato_api_util.js';
 import HeaderContainer from '../header/header_container';
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,7 +22,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return({
     getBusiness: (id) => dispatch(yelpBiz(id)),
-    getReviews: (id) => dispatch(yelpReviews(id))
+    getYelpReviews: (id) => dispatch(yelpReviews(id)),
+    getZomatoReviews: (searchInfo) => dispatch(getZomatoReviews(searchInfo))
+
   })
 }
 
@@ -32,24 +35,34 @@ class BusinessShow extends React.Component {
   }
 
   componentDidMount(){
-    const { business, getBusiness, businessId, reviews, getReviews } = this.props;
+    const { business, getBusiness, businessId, reviews, getYelpReviews } = this.props;
     if (!business) {
       getBusiness(businessId)
     }
 
-    if (business && Object.keys(reviews).length <= 0) {
-      getReviews(businessId)
+    if (business && Object.keys(reviews.yelpReviews).length <= 0) {
+      getYelpReviews(businessId)
     }
+
+    // if (business && Object.keys(reviews.zomatoReviews).length <= 0) {
+    //   debugger;
+    //   // getZomatoReviews()
+    // }
   }
 
   componentDidUpdate() {
-    const { business, getBusiness, businessId, getReviews, reviews } = this.props;
+    const { business, getBusiness, businessId, getYelpReviews, getZomatoReviews, reviews } = this.props;
     if (!business) {
       getBusiness(businessId)
     }
 
     if (business && Object.keys(reviews).length <= 0) {
-      getReviews(businessId)
+      getYelpReviews(businessId)
+    }
+
+    if (business && Object.keys(reviews.zomatoReviews).length <= 0) {
+      debugger;
+      getZomatoReviews()
     }
   }
 
