@@ -1,3 +1,36 @@
+.whole-page-container {
+    background-image: url("https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    height: 1000px;
+}
+
+.login-form-container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.login-form-box {
+    margin-top: 15px;
+    background-color: #FF7D7D;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.name-field {
+
+}
+
+.email-field {
+
+}
+
+.login-input {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 6px;
+    width: 100%;
+}
+
 .login-instead {
     text-decoration: underline;
 }
@@ -6,14 +39,33 @@
     text-decoration: underline;
 }
 
-.login-form-container {
-
+.password-field {
+    
 }
 
-.login-form {
-
+.session-submit-container {
+    display: flex;
+    justify-content: center;
 }
+
 
 .session-submit {
-    
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+
+}
+
+.session-submit:hover {
+    cursor: pointer;
+}
+
+.session-submit:target {
+    background: blue;
+}
+
+.errors {
+    color: blue;
 }
