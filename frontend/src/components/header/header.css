@@ -38,7 +38,6 @@
 }
 
 .logout-button {
-  color: green;
   border: 1px rgb(8, 7, 7) solid;
   cursor: pointer;
 }
@@ -47,15 +46,18 @@
   display: flex;
   justify-content: space-between;
   hover: cursor;
+  
 }
 
 .login-link {
   display: flex;
   text-decoration: underline;
   justify-content: flex-start;
+  margin-right: 10px;
 }
 
 .signup-link {
   text-decoration: underline;
   justify-content: flex-end;
+  margin-right: 10px;
 }
