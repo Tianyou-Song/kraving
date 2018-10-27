@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
 
   componentDidMount() {
     const { location, search, yelpSearch } = this.props;
-    const searchInfo = {term: 'pizza', location: location, limit: 5}
+    const searchInfo = {term: ' ', location: location, limit: 8}
 
     if (Object.keys(search).length <= 0 ) {
       yelpSearch(searchInfo)
@@ -87,14 +87,13 @@ class IndexPage extends React.Component {
       )
     } else {
       return (
-        <h1 className="index-title">{`Food Delivery in ${location}`}</h1>
+        <h1 className="index-title">{`Food in ${location}`}</h1>
       )
     }
   }
 
 
   render(){
-    const seedCity = "San Francisco"
     return <div className="index-page-container">
         {this.title()}
         {this.businessGrid()}
