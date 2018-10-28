@@ -20,11 +20,6 @@
   "bugs": {
     "url": "https://github.com/Tianyou-Song/kraving/issues"
   },
-
-  "engines": {
-    "node": "10.10.0",
-    "npm": "6.4.1"
-  },
   "homepage": "https://github.com/Tianyou-Song/kraving#readme",
   "dependencies": {
     "axios": "^0.18.0",
