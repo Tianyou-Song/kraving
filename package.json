@@ -11,6 +11,12 @@
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
+
+  "engines": {
+    "node": "10.10.0",
+    "npm": "6.4.1"
+  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tianyou-Song/kraving.git"
