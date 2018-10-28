@@ -41,4 +41,4 @@ app.use("/api/zomato", zomato);
 
 const port = process.env.PORT || 6000;
 
-app.listen(6000, () => console.log(`Server is running on port 6000`));
+app.listen(port, () => console.log(`Server is running on port 6000`));
