@@ -78,6 +78,7 @@
   margin-left: 20px;
 }
 
+
 .search-input-box::placeholder {
   color: white;
 }
@@ -93,6 +94,10 @@
   width: 100%;
 }
 
+.search-input-innner > input {
+  width: 100%;
+}
+
 .fas {
   font-size: 24px;
 }
@@ -100,6 +105,11 @@
 .fa-times {
   cursor: pointer;
 }
+
+.search-input-box {
+  width: 100%;
+}
+
 
 
 /* searchbar */
