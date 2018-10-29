@@ -21,8 +21,8 @@ class Header extends React.Component {
     } else {
       return (
         <div className="auth-links">
-            <Link className="login-link" to="/login">Login</Link>
-            <Link className="signup-link" to="/signup">Signup</Link>
+            <Link className="auth-link" to="/login">Login</Link>
+            <Link className="auth-link" to="/signup">Signup</Link>
         </div>
       );
     }

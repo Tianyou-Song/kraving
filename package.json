@@ -8,13 +8,12 @@
     "server": "nodemon --inspect app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-
   "engines": {
     "node": "10.10.0"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tianyou-Song/kraving.git"
@@ -30,6 +29,7 @@
     "bcrypt": "^3.0.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "client": "0.0.1",
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
     "hover.css": "^2.3.2",

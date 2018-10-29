@@ -106,9 +106,9 @@ class SearchBar extends React.Component {
   showClosingButton(type) {
     const { location, searchInfo } = this.state;
     if (type === 'loc' && location.length >= 1) {
-      return <i className="fas fa-times" onClick={() => this.setState({location: ''})}></i>
+      return <i className="fa-times fas" id="x-button" onClick={() => this.setState({location: ''})}></i>
     } else if (type === 'search' && searchInfo.length >= 1) {
-      return <i className="fas fa-times" onClick={() => this.setState({searchInfo: ''})}></i>
+      return <i className="fa-times fas" id="x-button" onClick={() => this.setState({searchInfo: ''})}></i>
     }
   }
 

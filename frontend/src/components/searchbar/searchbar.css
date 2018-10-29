@@ -3,12 +3,12 @@
 
 .search-container {
   display: flex;
-  width: 100%;
+  width: 70%;
   font-family: arial;
 }
 
 .search-bar-container {
-  width: 40%;
+  width: 50%;
   position: relative;
   color: white;
   padding: 5px 20px 4px 20px;
@@ -23,21 +23,36 @@
     width: 75%; */
     /* background-color: red */
     /* display: none; */
-    width: 80%;
-    margin-left: 10%
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .search-container{
+    /* margin-top: 20%;
+    width: 75%; */
+    /* background-color: red */
+    /* display: none; */
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-container{
+    /* margin-top: 20%;
+    width: 75%; */
+    /* background-color: red */
+    /* display: none; */
+    width: 100%;
   }
 }
 
 
-.search-bar-container:last-child {
-  border-right: 1px solid white;
-}
-
 .search-bar-container-location {
-  width: 40%;
+  width: 50%;
   position: relative;
   color: white;
-  padding: 20px;
+  padding: 5px 20px 4px 20px;
   display: flex;
   align-items: center;
   border-left: 1px solid white;
@@ -53,16 +68,6 @@
   }
 }
 
-
-.search-bar-container-location:last-child {
-  border-right: 1px solid white;
-}
-
-.fas {
-  font-size: 24px;
-  margin-right: 20px;
-}
-
 .search-input {
   display: flex;
   align-items: center;
@@ -70,6 +75,7 @@
   width: 100%;
   color: white;
   font-size: 18px;
+  margin-left: 20px;
 }
 
 .search-input-box::placeholder {
@@ -79,7 +85,7 @@
 @media screen and (max-width: 300px) {
   .search-input-box{
     /* font-size: 14px; */
-    width: none;
+    width: 100%
   }
 }
 
@@ -87,20 +93,13 @@
   width: 100%;
 }
 
-.search-input-box {
-  /* width: 100%; */
-}
-
-.search-dropdown {
-  z-index: 1;
-  position: absolute;
-  border: 1px solid black;
-  width: 108%;
-  background: white;
+.fas {
+  font-size: 24px;
 }
 
 .fa-times {
   cursor: pointer;
 }
+
 
 /* searchbar */
