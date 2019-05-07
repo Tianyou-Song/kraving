@@ -18,7 +18,7 @@
 
 
 .business-card-container-column{
-
+  max-height: 350px;
   margin: 15px;
   float: left;
   width: 30%;
@@ -52,7 +52,7 @@
 
 .business-card-image > img {
   width:100%;
-  max-height:300px;
+  max-height:275px;
   border-radius: 6px;
   display: inline-block;
   vertical-align: middle;
